@@ -1,41 +1,67 @@
-import { Card } from "../../components/ui/card";
 import { Link } from "react-router-dom";
+import {
+  Briefcase,
+  Info,
+  Mail,
+  FileText,
+  Users,
+  Building2,
+  MapPin,
+  Shield,
+  Map,
+} from "lucide-react";
 
 export const Welcome = (): JSX.Element => {
   return (
-    <div className="h-screen w-screen overflow-hidden bg-white">
-      <div className="h-full max-w-[1200px] mx-auto flex flex-col px-8">
+    <div
+      className="w-full overflow-x-hidden bg-white relative min-h-screen"
+      style={{
+        backgroundImage: "url(/static/Background_Veeville.jpg)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
+
+      <div className="min-h-screen max-w-[1200px] mx-auto flex flex-col px-8 md:px-12 relative z-10">
         {/* Header with logo and navigation */}
-        <header className="w-full pt-6 flex-none flex justify-between items-start">
-          <div className="w-36 sm:w-40 lg:w-48">
-            <img
-              src="https://veeville.com/wp-content/uploads/2023/05/VeevilleLogo.png"
-              alt="Veeville Logo"
-              className="w-full h-auto object-contain"
-            />
+        <header className="w-full pt-8 md:pt-10 flex-none flex justify-between items-start">
+          <div className="w-36 sm:w-40 lg:w-48 transition-transform duration-300 ease-in-out hover:scale-105">
+            <Link to="/">
+              <img
+                src="https://veeville.com/wp-content/uploads/2023/05/VeevilleLogo.png"
+                alt="Veeville Logo"
+                className="w-full h-auto object-contain"
+              />
+            </Link>
           </div>
 
-          <nav className="flex flex-col items-end space-y-4">
-            <div className="flex items-center gap-3">
+          <nav className="flex flex-col items-end space-y-5">
+            <div className="group flex items-center gap-3">
+              <Briefcase className="w-5 h-5 text-[#848688] transition-colors duration-300 group-hover:text-gray-900" />
               <Link
                 to="/work"
-                className="text-lg text-[#848688] hover:text-gray-900 transition-colors"
+                className="text-lg text-[#848688] group-hover:text-gray-900 transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-gray-900 after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full"
               >
                 WORK
               </Link>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="group flex items-center gap-3">
+              <Info className="w-5 h-5 text-[#848688] transition-colors duration-300 group-hover:text-gray-900" />
               <Link
                 to="/about"
-                className="text-lg text-[#848688] hover:text-gray-900 transition-colors"
+                className="text-lg text-[#848688] group-hover:text-gray-900 transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-gray-900 after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full"
               >
                 ABOUT
               </Link>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="group flex items-center gap-3">
+              <Mail className="w-5 h-5 text-[#848688] transition-colors duration-300 group-hover:text-gray-900" />
               <Link
                 to="/contact"
-                className="text-lg text-[#848688] hover:text-gray-900 transition-colors"
+                className="text-lg text-[#848688] group-hover:text-gray-900 transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-gray-900 after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full"
               >
                 CONTACT
               </Link>
@@ -44,11 +70,13 @@ export const Welcome = (): JSX.Element => {
         </header>
 
         {/* Main content */}
-        <main className="flex-1 py-6 flex items-center justify-between gap-8">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl sm:text-5xl font-light mb-6">Namaskara!</h1>
+        <main className="flex-1 py-16 md:py-20 flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-16">
+          <div className="max-w-2xl w-full md:w-auto">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-8 md:mb-10 text-[#848688] tracking-tight">
+              Namaskara!
+            </h1>
 
-            <div className="space-y-4 sm:space-y-5">
+            <div className="space-y-6 sm:space-y-8">
               <p className="text-base sm:text-lg text-[#848688] leading-relaxed">
                 Veeville is a global integrated marketing company that offers an
                 assortment of marketing services to organisations across a
@@ -72,96 +100,108 @@ export const Welcome = (): JSX.Element => {
             </div>
           </div>
 
-          <div className="w-48 sm:w-56 lg:w-64 flex-shrink-0">
+          <div className="w-48 sm:w-56 lg:w-64 flex-shrink-0 transition-transform duration-500 ease-in-out hover:scale-110 hover:rotate-3">
             <img
               src="https://veeville.com/wp-content/uploads/2023/05/Tagline-1536x1536.png"
               alt="If thou hast no horse thou must work thy ass off - Veeville motto"
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain drop-shadow-lg"
             />
           </div>
         </main>
 
         {/* Footer */}
-        <footer className="w-full py-6 flex-none border-t border-gray-200">
-          <div className="grid grid-cols-4 gap-8">
+        <footer className="w-full py-12 md:py-16 flex-none border-t border-gray-200 mt-8 md:mt-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {/* Column 1 - Copyright */}
-            <div className="col-span-1">
-              <p className="text-[#848688] text-sm">© 2023</p>
-              <p className="text-[#848688] italic">Veeville</p>
+            <div className="col-span-2 md:col-span-1">
+              <p className="text-[#848688] text-sm font-medium mb-2">© 2023</p>
+              <p className="text-[#848688] italic font-['Georgia'] text-[24px] leading-relaxed">
+                Veeville.
+              </p>
             </div>
 
             {/* Column 2 - Primary Links */}
-            <div className="col-span-1 flex flex-col space-y-2">
+            <div className="col-span-1 flex flex-col space-y-3">
               <Link
                 to="/about"
-                className="text-[#848688] hover:text-gray-900 text-sm"
+                className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
               >
+                <Info className="w-4 h-4 transition-colors duration-300" />
                 About
               </Link>
               <Link
                 to="/our-clients"
-                className="text-[#848688] hover:text-gray-900 text-sm"
+                className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
               >
+                <Users className="w-4 h-4 transition-colors duration-300" />
                 Our Clients
               </Link>
               <Link
                 to="/our-work"
-                className="text-[#848688] hover:text-gray-900 text-sm"
+                className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
               >
+                <Briefcase className="w-4 h-4 transition-colors duration-300" />
                 Our Work
               </Link>
               <Link
                 to="/experiences"
-                className="text-[#848688] hover:text-gray-900 text-sm"
+                className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
               >
+                <Building2 className="w-4 h-4 transition-colors duration-300" />
                 Veeville Experiences
               </Link>
               <Link
                 to="/careers"
-                className="text-[#848688] hover:text-gray-900 text-sm"
+                className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
               >
+                <MapPin className="w-4 h-4 transition-colors duration-300" />
                 Careers
               </Link>
               <Link
                 to="/contact"
-                className="text-[#848688] hover:text-gray-900 text-sm"
+                className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
               >
+                <Mail className="w-4 h-4 transition-colors duration-300" />
                 Contact
               </Link>
             </div>
 
             {/* Column 3 - Secondary Links */}
-            <div className="col-span-1 flex flex-col space-y-2">
+            <div className="col-span-1 flex flex-col space-y-3">
               <Link
                 to="/terms"
-                className="text-[#848688] hover:text-gray-900 text-sm"
+                className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
               >
+                <FileText className="w-4 h-4 transition-colors duration-300" />
                 Terms and Conditions
               </Link>
               <Link
                 to="/privacy"
-                className="text-[#848688] hover:text-gray-900 text-sm"
+                className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
               >
+                <Shield className="w-4 h-4 transition-colors duration-300" />
                 Privacy Policy
               </Link>
               <Link
                 to="/sitemap"
-                className="text-[#848688] hover:text-gray-900 text-sm"
+                className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
               >
+                <Map className="w-4 h-4 transition-colors duration-300" />
                 Site Map
               </Link>
             </div>
 
             {/* Column 4 - Social Links */}
-            <div className="col-span-1 flex justify-end space-x-4">
+            <div className="col-span-2 md:col-span-1 flex md:justify-end space-x-6 mt-6 md:mt-0">
               <a
                 href="https://instagram.com"
-                className="text-[#848688] hover:text-gray-900"
+                className="text-[#848688] hover:text-gray-900 transition-all duration-300 hover:scale-110"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="w-6 h-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -175,12 +215,13 @@ export const Welcome = (): JSX.Element => {
               </a>
               <a
                 href="https://linkedin.com"
-                className="text-[#848688] hover:text-gray-900"
+                className="text-[#848688] hover:text-gray-900 transition-all duration-300 hover:scale-110"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Connect with us on LinkedIn"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="w-6 h-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"

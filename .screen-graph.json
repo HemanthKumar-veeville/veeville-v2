@@ -1,14 +1,30 @@
 {
   "nodes": [
     {
-      "id": "src/pages/SignupSignin/SignupSignin.tsx",
-      "label": "SignupSignin",
+      "id": "src/pages/Welcome/Welcome.tsx",
+      "label": "Welcome",
       "routes": [
         "/"
       ],
-      "dataModelId": "3073:22383",
       "isRoot": true
     }
   ],
-  "edges": []
+  "edges": [
+    {
+      "id": "src\\pages\\Welcome\\Welcome.tsx:35:12-to-src\\pages\\Welcome\\Welcome.tsx",
+      "source": "src\\pages\\Welcome\\Welcome.tsx",
+      "target": "src\\pages\\Welcome\\Welcome.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link to=\"/\">\n              <img\n                src=\"https://veeville.com/wp-content/uploads/2023/05/VeevilleLogo.png\"\n                alt=\"Veeville Logo\"\n                className=\"w-full h-auto object-contain\"\n              />\n            </Link>",
+          "line": 35,
+          "endLine": 41,
+          "column": 12,
+          "endColumn": 19,
+          "sourceFile": "src\\pages\\Welcome\\Welcome.tsx"
+        }
+      }
+    }
+  ]
 }

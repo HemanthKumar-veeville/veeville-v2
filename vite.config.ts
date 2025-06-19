@@ -1,16 +1,21 @@
-import { screenGraphPlugin } from "@animaapp/vite-plugin-screen-graph";
-import react from "@vitejs/plugin-react";
-import tailwind from "tailwindcss";
 import { defineConfig } from "vite";
+import tailwind from "tailwindcss";
+import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
-  plugins: [react(), mode === "development" && screenGraphPlugin()],
-  publicDir: "./static",
-  base: "./",
+  plugins: [tailwind()],
+  publicDir: "public",
+  base: mode === "development" ? "/" : "/",
   css: {
     postcss: {
       plugins: [tailwind()],
     },
   },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      'static': path.resolve(__dirname, './static')
+    }
+  }
 }));
