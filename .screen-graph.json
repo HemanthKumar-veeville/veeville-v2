@@ -1,0 +1,14 @@
+{
+  "nodes": [
+    {
+      "id": "src/pages/SignupSignin/SignupSignin.tsx",
+      "label": "SignupSignin",
+      "routes": [
+        "/"
+      ],
+      "dataModelId": "3073:22383",
+      "isRoot": true
+    }
+  ],
+  "edges": []
+}
