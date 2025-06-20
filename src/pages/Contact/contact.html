@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <title>Veeville</title>
+    <link rel="stylesheet" href="contact.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link
+      rel="icon"
+      href="http://localhost:1337/uploads/Logoimage_0681325574.png"
+      type="image/x-icon"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html" class="logo-link">
+          <img
+            src="http://localhost:1337/uploads/Logo_Image_e91355f03e.webp"
+            alt="Veeville Logo"
+            class="logo-image"
+          />
+        </a>
+      </div>
+
+      <div class="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="work.html">WORK</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+
+        <!-- ADD THIS HERE -->
+        <li>
+          <div class="search-container">
+            <div class="search-icon" onclick="toggleSearch()">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div id="search-overlay">
+              <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                  type="text"
+                  placeholder="Ask Bob Anything"
+                  class="search-input"
+                />
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- END -->
+      </ul>
+    </nav>
+
+    <section class="stamina-banner">
+      <img
+        src="http://localhost:1337/uploads/Contact_Banner_acc5cd1db2.webp"
+        alt="Banner Image"
+        class="stamina-banner__image"
+      />
+    </section>
+
+    <section class="locations">
+      <div class="locations-container">
+        <!-- Left Side -->
+        <div class="location-block">
+          <h2>Bengaluru</h2>
+          <div class="time-display"></div>
+          <p>
+            Contact Us :
+            <a href="mailto:getpersonal@veeville.com"
+              >getpersonal@veeville.com</a
+            >
+          </p>
+          <p>080 2354 2582</p>
+          <p>
+            Veeville Consulting Private Limited #300,<br />
+            3rd Floor, 1st Block, 3rd Main, RT Nagar,<br />
+            Bangalore 560032<br />
+            <a
+              href="https://www.google.com/maps/place/Veeville+Consulting+%5BP%5D+Ltd./@13.020155,77.594268,15z/data=!4m6!3m5!1s0x3bae17f80fffffff:0x77dcef18685169d1!8m2!3d13.0201546!4d77.5942678!16s%2Fg%2F1vlqnnj7?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDEyMC4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              >Visit Us</a
+            >
+          </p>
+        </div>
+
+        <!-- Right Side -->
+        <div class="description-block">
+          <h3>Connect with Us!</h3>
+          <p>
+            We'd love to hear from you. Reach out for partnerships, business
+            inquiries, or just say hello!
+          </p>
+          <p>
+            Email:
+            <a href="mailto:getpersonal@veeville.com"
+              >getpersonal@veeville.com</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-data">
+      <div class="contact-data-container">
+        <div class="contact-data-left">
+          <img
+            src="https://pearlfisher.wpenginepowered.com/wp-content/uploads/2023/11/Secondary_Imagery-a1-1.jpg"
+            alt="Left Image"
+          />
+        </div>
+        <div class="contact-data-right">
+          <img
+            src="https://pearlfisher.wpenginepowered.com/wp-content/uploads/2023/11/Secondary_Imagery-b1.jpg"
+            alt="Right Image"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-section">
+      <div class="columns-row">
+        <div class="column">
+          <h3>Contact</h3>
+          <p>Let's chat.</p>
+        </div>
+
+        <div class="column">
+          <h3>Newsletter</h3>
+          <p>Subscribe.</p>
+        </div>
+
+        <div class="column">
+          <h3>Join us</h3>
+          <a href="carrer.html" class="footer-carrer">
+            <p>Careers.</p>
+          </a>
+        </div>
+
+        <div class="spacer-column"></div>
+      </div>
+
+      <div class="info-row">
+        <div class="locations">
+          <span>Bengaluru.</span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © Veeville 2009 - 2025
+          <a href="#">Privacy Policy</a>
+          <a href="#">Sitemap</a>
+        </p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="#" aria-label="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a href="#" aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navbar -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        highlightActivePage();
+        setupHamburgerMenu();
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        setupStickyNavbar();
+      });
+
+      function setupStickyNavbar() {
+        const navbar = document.querySelector(".navbar");
+        const navLinks = document.querySelectorAll(".nav-links li a");
+        const hamburgerIcon = document.querySelector(".hamburger i");
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) {
+            // Threshold can be adjusted
+            navbar.classList.add("sticky");
+            navLinks.forEach((link) => link.classList.add("sticky-link"));
+            hamburgerIcon.classList.add("sticky-icon");
+          } else {
+            navbar.classList.remove("sticky");
+            navLinks.forEach((link) => link.classList.remove("sticky-link"));
+            hamburgerIcon.classList.remove("sticky-icon");
+          }
+        });
+      }
+
+      function highlightActivePage() {
+        const currentPath = window.location.pathname.split("/").pop();
+        const menuItems = document.querySelectorAll(".nav-links li a");
+
+        menuItems.forEach((item) => {
+          if (item.getAttribute("href") === currentPath) {
+            item.classList.add("active");
+          }
+        });
+      }
+
+      function setupHamburgerMenu() {
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+        const hamburgerIcon = document.querySelector(".hamburger i");
+
+        hamburger.addEventListener("click", () => {
+          toggleMenu(navLinks, hamburgerIcon, hamburger);
+        });
+      }
+
+      function toggleMenu(navLinks, hamburgerIcon, hamburger) {
+        navLinks.classList.toggle("active");
+
+        if (navLinks.classList.contains("active")) {
+          hamburgerIcon.classList.remove("fa-bars");
+          hamburgerIcon.classList.add("fa-xmark");
+          hamburger.classList.add("close-style"); // add custom style
+        } else {
+          hamburgerIcon.classList.remove("fa-xmark");
+          hamburgerIcon.classList.add("fa-bars");
+          hamburger.classList.remove("close-style"); // remove custom style
+        }
+      }
+    </script>
+
+    <!-- search bar -->
+
+    <script>
+      function toggleSearch() {
+        const overlay = document.getElementById("search-overlay");
+        const inputField = overlay.querySelector("input");
+
+        inputField.value = ""; // reset input every time
+        overlay.style.display = "flex";
+        inputField.focus();
+
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) {
+            overlay.style.display = "none";
+          }
+        });
+      }
+    </script>
+
+    <!-- Carousel -->
+
+    <script>
+      function initCarousel(selector) {
+        const section = document.querySelector(selector);
+        if (!section) return;
+
+        const slides = section.querySelectorAll(".dc-slide");
+        const dots = section.querySelectorAll(".dc-dot");
+        let currentIndex = 0;
+
+        function showSlide(index) {
+          slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
+            dots[i].classList.toggle("active", i === index);
+          });
+          currentIndex = index;
+        }
+
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            const index = parseInt(dot.getAttribute("data-index"));
+            showSlide(index);
+          });
+        });
+
+        setInterval(() => {
+          const nextIndex = (currentIndex + 1) % slides.length;
+          showSlide(nextIndex);
+        }, 5000);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        initCarousel(".design-carousel");
+      });
+    </script>
+  </body>
+</html>

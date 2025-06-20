@@ -5,6 +5,7 @@ import WorkPage from "./pages/Work/WorkPage";
 import "./styles.css";
 import CustomCursor from "./components/ui/CustomCursor";
 import ScrollToTop from "./components/ui/ScrollToTop";
+import ContactPage from "./pages/Contact/ContactPage";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/work" element={<WorkPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </>
   );
