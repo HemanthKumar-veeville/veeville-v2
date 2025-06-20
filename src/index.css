@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: 'Manrope', sans-serif;
+  /* font-family: 'Manrope', sans-serif; */
   background: url('your-image-path.jpg') no-repeat center center/cover;
   color: #ffffff;
   line-height: 1.6;
@@ -286,7 +286,7 @@ body {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  font-family: 'Manrope', sans-serif;
+  /* font-family: 'Manrope', sans-serif; */
 }
 
 .design-carousel .dc-slide {
@@ -692,7 +692,7 @@ body {
   max-width: 100%;
   margin: 0 auto;
   padding: 40px 40px;
-  font-family: 'Manrope', sans-serif;
+  /* font-family: 'Manrope', sans-serif; */
   background-color: #000000;
   color: var(--primary-color);
 }

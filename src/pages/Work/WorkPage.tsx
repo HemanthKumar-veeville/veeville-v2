@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Work.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,6 +36,9 @@ const WorkPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("All-projects");
   const [showCarousel, setShowCarousel] = useState(true);
 
+  // Refs
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
   // Project cards carousel
   const { trackRef, trackStyle, clonedItems } = useCarousel({
     items: relatedProjects,
@@ -64,6 +67,13 @@ const WorkPage: React.FC = () => {
   useEffect(() => {
     setShowCarousel(!submittedSearchQuery);
   }, [submittedSearchQuery]);
+
+  // Focus search input when overlay opens
+  useEffect(() => {
+    if (isSearchOpen && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [isSearchOpen]);
 
   // Event handlers
   const toggleMenu = () => {
@@ -149,6 +159,7 @@ const WorkPage: React.FC = () => {
                     <form onSubmit={handleSearchSubmit}>
                       <FontAwesomeIcon icon={faMagnifyingGlass} />
                       <input
+                        ref={searchInputRef}
                         type="text"
                         placeholder="Search projects..."
                         className="search-input"
@@ -169,9 +180,19 @@ const WorkPage: React.FC = () => {
 
       {/* Show search results summary if there's a search query */}
       {submittedSearchQuery && (
-        <div className="search-results-summary">
+        <div className="search-results-summary flex justify-between items-center w-full px-0 py-2 m-0">
           <div className="container">
-            <button onClick={clearSearch} className="clear-search">
+            <h2>
+              Search Results for "
+              <span className="text-red-500">{searchQuery}</span>"
+            </h2>
+          </div>
+          <div className="container w-fit mx-0 px-0">
+            <button
+              onClick={clearSearch}
+              className="clear-search flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition-colors"
+            >
+              <FontAwesomeIcon icon={faXmark} />
               Clear Search
             </button>
           </div>
@@ -231,6 +252,7 @@ const WorkPage: React.FC = () => {
       <PortfolioSection
         activeTab={activeTab}
         searchQuery={submittedSearchQuery}
+        setSearchQuery={setSearchQuery}
       />
 
       {/* Project Cards Carousel - only show if no search is active */}

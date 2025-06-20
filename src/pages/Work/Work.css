@@ -7,7 +7,7 @@
   }
   
   body {
-    font-family: 'Manrope', sans-serif;
+    /* font-family: 'Manrope', sans-serif; */
     background: url('your-image-path.jpg') no-repeat center center/cover;
     color: #ffffff;
     line-height: 1.6;
@@ -249,7 +249,7 @@
       overflow: hidden;
       margin: 0;
       padding: 0;
-      font-family: 'Manrope', sans-serif;
+      /* font-family: 'Manrope', sans-serif; */
     }
     
     .design-carousel .dc-slide {
@@ -686,7 +686,7 @@
       width: 100%;
       margin: 0 auto;
       padding: 40px 40px;
-      font-family: 'Manrope', sans-serif;
+      /* font-family: 'Manrope', sans-serif; */
       background-color: #000000;
       color: var(--primary-color);
     }
@@ -1789,18 +1789,66 @@
 }
 
 /* No Results Message */
-.no-results {
+.no-results-message {
   text-align: center;
-  padding: 60px 20px;
-  background: #f5f5f5;
+  padding: 80px 20px;
+  background: #f9f9f9;
   margin: 40px auto;
-  max-width: 600px;
-  border-radius: 8px;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.no-results h3 {
+.no-results-message h3 {
+  margin: 0 0 16px 0;
+  color: #333333;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.no-results-message p {
+  color: #666666;
+  font-size: 16px;
+  margin: 0 0 24px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.no-results-message .suggestions {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #eaeaea;
+}
+
+.no-results-message .suggestions h4 {
+  color: #333333;
+  font-size: 18px;
+  margin: 0 0 16px 0;
+}
+
+.no-results-message .suggestions ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  color: #666;
-  font-size: 20px;
-  font-weight: 500;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.no-results-message .suggestions li {
+  background: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #666666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid #eaeaea;
+}
+
+.no-results-message .suggestions li:hover {
+  background: #f0f0f0;
+  color: #333333;
+  border-color: #d0d0d0;
 }

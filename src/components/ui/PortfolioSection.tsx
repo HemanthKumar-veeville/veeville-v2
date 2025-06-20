@@ -6,12 +6,24 @@ import { PortfolioItem } from "../../pages/Work/types";
 interface PortfolioSectionProps {
   activeTab: string;
   searchQuery?: string;
+  setSearchQuery: (query: string) => void;
+}
+
+// Type guard for section titles
+interface SectionWithMain {
+  main: string;
+  description?: string;
+}
+
+function isSectionWithMain(value: unknown): value is SectionWithMain {
+  return typeof value === "object" && value !== null && "main" in value;
 }
 
 const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   activeTab,
-  searchQuery,
-}) => {
+  searchQuery = "",
+  setSearchQuery,
+}): JSX.Element => {
   useEffect(() => {
     if (searchQuery) {
       // When searching, show all sections
@@ -82,12 +94,28 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 
   // If there's a search query and no results, show a message
   if (searchQuery && filteredPortfolioItems.length === 0) {
+    const suggestedCategories = portfolioItems.map((item) => {
+      return {
+        key: item.id,
+        value: item.id,
+      };
+    });
+
     return (
-      <div
-        className="no-results-message"
-        style={{ textAlign: "center", padding: "40px 20px" }}
-      >
+      <div className="no-results-message">
         <h3>No projects found matching "{searchQuery}"</h3>
+        <p>
+          We couldn't find any projects that match your search. Try adjusting
+          your search terms or explore some popular categories below.
+        </p>
+        <div className="suggestions">
+          <h4>Popular Search Keywords</h4>
+          <ul>
+            {suggestedCategories.slice(0, 6).map(({ key, value }) => (
+              <li key={key}>{value}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }
@@ -98,18 +126,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
       <section className="portfolio-section">
         <div className="row row-text">
           <div className="col title text-[32px] font-[600] text-[#333333]">
-            <h2>
-              {searchQuery
-                ? `Search Results for "${searchQuery}"`
-                : SECTION_TITLES.PORTFOLIO.main}
-            </h2>
+            <h2>{searchQuery ? `` : SECTION_TITLES.PORTFOLIO.main}</h2>
           </div>
           <div className="col content text-[16px] text-[#333333]">
-            <p>
-              {searchQuery
-                ? `Found ${filteredPortfolioItems.length} matching projects`
-                : SECTION_TITLES.PORTFOLIO.description}
-            </p>
+            <p>{searchQuery ? `` : SECTION_TITLES.PORTFOLIO.description}</p>
           </div>
         </div>
 
