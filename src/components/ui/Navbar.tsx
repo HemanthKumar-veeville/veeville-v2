@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../pages/Work/Work.module.css";
 
@@ -8,6 +8,8 @@ interface NavbarProps {
   isSearchOpen: boolean;
   onToggleMenu: () => void;
   onToggleSearch: () => void;
+  onSearch: (query: string) => void;
+  searchQuery: string;
 }
 
 const Navbar: React.FC<NavbarProps> = ({
@@ -16,7 +18,16 @@ const Navbar: React.FC<NavbarProps> = ({
   isSearchOpen,
   onToggleMenu,
   onToggleSearch,
+  onSearch,
+  searchQuery,
 }) => {
+  const [inputValue, setInputValue] = useState(searchQuery);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSearch(inputValue);
+  };
+
   return (
     <nav className={`${styles.navbar} ${isSticky ? styles.sticky : ""}`}>
       <div className={styles.logo}>
@@ -50,14 +61,23 @@ const Navbar: React.FC<NavbarProps> = ({
             </div>
             {isSearchOpen && (
               <div className={styles.searchOverlay}>
-                <div className={styles.searchBox}>
+                <form onSubmit={handleSubmit} className={styles.searchBox}>
                   <i className="fa-solid fa-magnifying-glass" />
                   <input
                     type="text"
-                    placeholder="Ask Bob Anything"
+                    placeholder="Search projects..."
                     className={styles.searchInput}
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
                   />
-                </div>
+                  <button
+                    type="submit"
+                    className={styles.searchSubmit}
+                    style={{ backgroundColor: "transparent", border: "none" }}
+                  >
+                    Search
+                  </button>
+                </form>
               </div>
             )}
           </div>

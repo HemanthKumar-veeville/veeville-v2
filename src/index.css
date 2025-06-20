@@ -17,6 +17,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   padding: 0;
+  cursor: none;
 }
 
 .navbar {
@@ -1060,4 +1061,22 @@ body {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Custom cursor styles */
+.custom-cursor {
+  width: 15px;
+  height: 15px;
+  background-color: #f05847;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  transform: translate(-50%, -50%);
+}
+
+/* Show default cursor on clickable elements for better UX */
+a, button, input, select, textarea, [role="button"] {
+  cursor: none;
 } 

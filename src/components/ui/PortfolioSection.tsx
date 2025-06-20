@@ -5,32 +5,47 @@ import { PortfolioItem } from "../../pages/Work/types";
 
 interface PortfolioSectionProps {
   activeTab: string;
+  searchQuery?: string;
 }
 
-const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
+const PortfolioSection: React.FC<PortfolioSectionProps> = ({
+  activeTab,
+  searchQuery,
+}) => {
   useEffect(() => {
-    // Hide all sections first
-    Object.values(sectionMap)
-      .flat()
-      .forEach((sectionId) => {
+    if (searchQuery) {
+      // When searching, show all sections
+      Object.values(sectionMap)
+        .flat()
+        .forEach((sectionId) => {
+          const el = document.querySelector(`.${sectionId}`);
+          if (el) {
+            el.classList.remove("hidden");
+          }
+        });
+    } else {
+      // Normal tab filtering behavior
+      Object.values(sectionMap)
+        .flat()
+        .forEach((sectionId) => {
+          const el = document.querySelector(`.${sectionId}`);
+          if (el) {
+            el.classList.add("hidden");
+          }
+        });
+
+      const sectionsToShow = sectionMap[activeTab] || [];
+      sectionsToShow.forEach((sectionId) => {
         const el = document.querySelector(`.${sectionId}`);
         if (el) {
-          el.classList.add("hidden");
+          el.classList.remove("hidden");
         }
       });
 
-    // Show sections for active tab
-    const sectionsToShow = sectionMap[activeTab] || [];
-    sectionsToShow.forEach((sectionId) => {
-      const el = document.querySelector(`.${sectionId}`);
-      if (el) {
-        el.classList.remove("hidden");
-      }
-    });
-
-    // Update URL hash
-    window.history.replaceState({}, "", `#${activeTab}`);
-  }, [activeTab]);
+      // Update URL hash
+      window.history.replaceState({}, "", `#${activeTab}`);
+    }
+  }, [activeTab, searchQuery]);
 
   // Helper function to chunk array into pairs
   const chunkArray = <
@@ -49,8 +64,33 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
     );
   };
 
+  // Filter items based on search query
+  const filterItems = (items: PortfolioItem[]) => {
+    if (!searchQuery) return items;
+
+    const query = searchQuery.toLowerCase().trim();
+    return items.filter(
+      (item) =>
+        item.title.toLowerCase().includes(query) ||
+        item.description.toLowerCase().includes(query)
+    );
+  };
+
   // Group portfolio items into pairs for the grid
-  const portfolioItemPairs = chunkArray(portfolioItems, 2);
+  const filteredPortfolioItems = filterItems(portfolioItems);
+  const portfolioItemPairs = chunkArray(filteredPortfolioItems, 2);
+
+  // If there's a search query and no results, show a message
+  if (searchQuery && filteredPortfolioItems.length === 0) {
+    return (
+      <div
+        className="no-results-message"
+        style={{ textAlign: "center", padding: "40px 20px" }}
+      >
+        <h3>No projects found matching "{searchQuery}"</h3>
+      </div>
+    );
+  }
 
   return (
     <div className="portfolio-sections">
@@ -58,10 +98,18 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
       <section className="portfolio-section">
         <div className="row row-text">
           <div className="col title text-[32px] font-[600] text-[#333333]">
-            <h2>{SECTION_TITLES.PORTFOLIO.main}</h2>
+            <h2>
+              {searchQuery
+                ? `Search Results for "${searchQuery}"`
+                : SECTION_TITLES.PORTFOLIO.main}
+            </h2>
           </div>
           <div className="col content text-[16px] text-[#333333]">
-            <p>{SECTION_TITLES.PORTFOLIO.description}</p>
+            <p>
+              {searchQuery
+                ? `Found ${filteredPortfolioItems.length} matching projects`
+                : SECTION_TITLES.PORTFOLIO.description}
+            </p>
           </div>
         </div>
 
@@ -80,222 +128,240 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
                 </div>
               </div>
             ))}
-            {/* If the pair has only one item, add an empty column to maintain grid structure */}
             {pair.length === 1 && <div className="col"></div>}
           </div>
         ))}
       </section>
 
-      {/* Gallery Block */}
-      <section className="gallery-block">
-        <div className="row row-text">
-          <div className="col title text-[32px] font-[600] text-[#333333]">
-            <h2>{sections.gallery.heading}</h2>
-          </div>
-          <div className="col content text-[16px] text-[#333333]">
-            <p>{sections.gallery.description}</p>
-          </div>
-        </div>
+      {/* Only show other sections if not searching */}
+      {!searchQuery && (
+        <>
+          {/* Gallery Block */}
+          <section className="gallery-block">
+            <div className="row row-text">
+              <div className="col title text-[32px] font-[600] text-[#333333]">
+                <h2>{sections.gallery.heading}</h2>
+              </div>
+              <div className="col content text-[16px] text-[#333333]">
+                <p>{sections.gallery.description}</p>
+              </div>
+            </div>
 
-        {chunkArray(sections.gallery.items, 2).map((pair, rowIndex) => (
-          <div key={rowIndex} className="row">
-            {pair.map((item, itemIndex) => (
-              <div key={itemIndex} className="col">
-                <div className="img-container">
-                  <a href={item.link}>
-                    <img src={item.imageUrl} alt={item.title} />
-                    <div className="overlay">
-                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
-                      <p className="text-[16px]">{item.description}</p>
+            {chunkArray(sections.gallery.items, 2).map((pair, rowIndex) => (
+              <div key={rowIndex} className="row">
+                {pair.map((item, itemIndex) => (
+                  <div key={itemIndex} className="col">
+                    <div className="img-container">
+                      <a href={item.link}>
+                        <img src={item.imageUrl} alt={item.title} />
+                        <div className="overlay">
+                          <h3 className="text-[24px] font-[600]">
+                            {item.title}
+                          </h3>
+                          <p className="text-[16px]">{item.description}</p>
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                </div>
+                  </div>
+                ))}
+                {pair.length === 1 && <div className="col"></div>}
               </div>
             ))}
-            {pair.length === 1 && <div className="col"></div>}
-          </div>
-        ))}
-      </section>
+          </section>
 
-      {/* Creative Block */}
-      <section className="creative-block">
-        <div className="row row-text">
-          <div className="col title text-[32px] font-[600] text-[#333333]">
-            <h2>{sections.creative.heading}</h2>
-          </div>
-          <div className="col content text-[16px] text-[#333333]">
-            <p>{sections.creative.description}</p>
-          </div>
-        </div>
-        {chunkArray(sections.creative.items, 2).map((pair, rowIndex) => (
-          <div key={rowIndex} className="row">
-            {pair.map((item, itemIndex) => (
-              <div key={itemIndex} className="col">
-                <div className="img-container">
-                  <a href={item.link}>
-                    <img src={item.imageUrl} alt={item.title} />
-                    <div className="overlay">
-                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
-                      <p className="text-[16px]">{item.description}</p>
+          {/* Creative Block */}
+          <section className="creative-block">
+            <div className="row row-text">
+              <div className="col title text-[32px] font-[600] text-[#333333]">
+                <h2>{sections.creative.heading}</h2>
+              </div>
+              <div className="col content text-[16px] text-[#333333]">
+                <p>{sections.creative.description}</p>
+              </div>
+            </div>
+            {chunkArray(sections.creative.items, 2).map((pair, rowIndex) => (
+              <div key={rowIndex} className="row">
+                {pair.map((item, itemIndex) => (
+                  <div key={itemIndex} className="col">
+                    <div className="img-container">
+                      <a href={item.link}>
+                        <img src={item.imageUrl} alt={item.title} />
+                        <div className="overlay">
+                          <h3 className="text-[24px] font-[600]">
+                            {item.title}
+                          </h3>
+                          <p className="text-[16px]">{item.description}</p>
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                </div>
+                  </div>
+                ))}
+                {pair.length === 1 && <div className="col"></div>}
               </div>
             ))}
-            {pair.length === 1 && <div className="col"></div>}
-          </div>
-        ))}
-      </section>
+          </section>
 
-      {/* Inspire Block */}
-      <section className="inspire-block">
-        <div className="row row-text">
-          <div className="col title text-[32px] font-[600] text-[#333333]">
-            <h2>{sections.inspire.heading}</h2>
-          </div>
-          <div className="col content text-[16px] text-[#333333]">
-            <p>{sections.inspire.description}</p>
-          </div>
-        </div>
-        {chunkArray(sections.inspire.items, 2).map((pair, rowIndex) => (
-          <div key={rowIndex} className="row">
-            {pair.map((item, itemIndex) => (
-              <div key={itemIndex} className="col">
-                <div className="img-container">
-                  <a href={item.link}>
-                    <img src={item.imageUrl} alt={item.title} />
-                    <div className="overlay">
-                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
-                      <p className="text-[16px]">{item.description}</p>
+          {/* Inspire Block */}
+          <section className="inspire-block">
+            <div className="row row-text">
+              <div className="col title text-[32px] font-[600] text-[#333333]">
+                <h2>{sections.inspire.heading}</h2>
+              </div>
+              <div className="col content text-[16px] text-[#333333]">
+                <p>{sections.inspire.description}</p>
+              </div>
+            </div>
+            {chunkArray(sections.inspire.items, 2).map((pair, rowIndex) => (
+              <div key={rowIndex} className="row">
+                {pair.map((item, itemIndex) => (
+                  <div key={itemIndex} className="col">
+                    <div className="img-container">
+                      <a href={item.link}>
+                        <img src={item.imageUrl} alt={item.title} />
+                        <div className="overlay">
+                          <h3 className="text-[24px] font-[600]">
+                            {item.title}
+                          </h3>
+                          <p className="text-[16px]">{item.description}</p>
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                </div>
+                  </div>
+                ))}
+                {pair.length === 1 && <div className="col"></div>}
               </div>
             ))}
-            {pair.length === 1 && <div className="col"></div>}
-          </div>
-        ))}
-      </section>
+          </section>
 
-      {/* Vision Block */}
-      <section className="vision-block">
-        <div className="row row-text">
-          <div className="col title text-[32px] font-[600] text-[#333333]">
-            <h2>{sections.vision.heading}</h2>
-          </div>
-          <div className="col content text-[16px] text-[#333333]">
-            <p>{sections.vision.description}</p>
-          </div>
-        </div>
-        {chunkArray(sections.vision.items, 2).map((pair, rowIndex) => (
-          <div key={rowIndex} className="row">
-            {pair.map((item, itemIndex) => (
-              <div key={itemIndex} className="col">
-                <div className="img-container">
-                  <a href={item.link}>
-                    <img src={item.imageUrl} alt={item.title} />
-                    <div className="overlay">
-                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
-                      <p className="text-[16px]">{item.description}</p>
+          {/* Vision Block */}
+          <section className="vision-block">
+            <div className="row row-text">
+              <div className="col title text-[32px] font-[600] text-[#333333]">
+                <h2>{sections.vision.heading}</h2>
+              </div>
+              <div className="col content text-[16px] text-[#333333]">
+                <p>{sections.vision.description}</p>
+              </div>
+            </div>
+            {chunkArray(sections.vision.items, 2).map((pair, rowIndex) => (
+              <div key={rowIndex} className="row">
+                {pair.map((item, itemIndex) => (
+                  <div key={itemIndex} className="col">
+                    <div className="img-container">
+                      <a href={item.link}>
+                        <img src={item.imageUrl} alt={item.title} />
+                        <div className="overlay">
+                          <h3 className="text-[24px] font-[600]">
+                            {item.title}
+                          </h3>
+                          <p className="text-[16px]">{item.description}</p>
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                </div>
+                  </div>
+                ))}
+                {pair.length === 1 && <div className="col"></div>}
               </div>
             ))}
-            {pair.length === 1 && <div className="col"></div>}
-          </div>
-        ))}
-      </section>
+          </section>
 
-      {/* Identity Block */}
-      <section className="identity-block">
-        <div className="row row-text">
-          <div className="col title text-[32px] font-[600] text-[#333333]">
-            <h2>{sections.identity.heading}</h2>
-          </div>
-          <div className="col content text-[16px] text-[#333333]">
-            <p>{sections.identity.description}</p>
-          </div>
-        </div>
-        {chunkArray(sections.identity.items, 2).map((pair, rowIndex) => (
-          <div key={rowIndex} className="row">
-            {pair.map((item, itemIndex) => (
-              <div key={itemIndex} className="col">
-                <div className="img-container">
-                  <a href={item.link}>
-                    <img src={item.imageUrl} alt={item.title} />
-                    <div className="overlay">
-                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
-                      <p className="text-[16px]">{item.description}</p>
+          {/* Identity Block */}
+          <section className="identity-block">
+            <div className="row row-text">
+              <div className="col title text-[32px] font-[600] text-[#333333]">
+                <h2>{sections.identity.heading}</h2>
+              </div>
+              <div className="col content text-[16px] text-[#333333]">
+                <p>{sections.identity.description}</p>
+              </div>
+            </div>
+            {chunkArray(sections.identity.items, 2).map((pair, rowIndex) => (
+              <div key={rowIndex} className="row">
+                {pair.map((item, itemIndex) => (
+                  <div key={itemIndex} className="col">
+                    <div className="img-container">
+                      <a href={item.link}>
+                        <img src={item.imageUrl} alt={item.title} />
+                        <div className="overlay">
+                          <h3 className="text-[24px] font-[600]">
+                            {item.title}
+                          </h3>
+                          <p className="text-[16px]">{item.description}</p>
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                </div>
+                  </div>
+                ))}
+                {pair.length === 1 && <div className="col"></div>}
               </div>
             ))}
-            {pair.length === 1 && <div className="col"></div>}
-          </div>
-        ))}
-      </section>
+          </section>
 
-      {/* Essence Block */}
-      <section className="essence-block">
-        <div className="row row-text">
-          <div className="col title text-[32px] font-[600] text-[#333333]">
-            <h2>{sections.essence.heading}</h2>
-          </div>
-          <div className="col content text-[16px] text-[#333333]">
-            <p>{sections.essence.description}</p>
-          </div>
-        </div>
-        {chunkArray(sections.essence.items, 2).map((pair, rowIndex) => (
-          <div key={rowIndex} className="row">
-            {pair.map((item, itemIndex) => (
-              <div key={itemIndex} className="col">
-                <div className="img-container">
-                  <a href={item.link}>
-                    <img src={item.imageUrl} alt={item.title} />
-                    <div className="overlay">
-                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
-                      <p className="text-[16px]">{item.description}</p>
+          {/* Essence Block */}
+          <section className="essence-block">
+            <div className="row row-text">
+              <div className="col title text-[32px] font-[600] text-[#333333]">
+                <h2>{sections.essence.heading}</h2>
+              </div>
+              <div className="col content text-[16px] text-[#333333]">
+                <p>{sections.essence.description}</p>
+              </div>
+            </div>
+            {chunkArray(sections.essence.items, 2).map((pair, rowIndex) => (
+              <div key={rowIndex} className="row">
+                {pair.map((item, itemIndex) => (
+                  <div key={itemIndex} className="col">
+                    <div className="img-container">
+                      <a href={item.link}>
+                        <img src={item.imageUrl} alt={item.title} />
+                        <div className="overlay">
+                          <h3 className="text-[24px] font-[600]">
+                            {item.title}
+                          </h3>
+                          <p className="text-[16px]">{item.description}</p>
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                </div>
+                  </div>
+                ))}
+                {pair.length === 1 && <div className="col"></div>}
               </div>
             ))}
-            {pair.length === 1 && <div className="col"></div>}
-          </div>
-        ))}
-      </section>
+          </section>
 
-      {/* Product Block */}
-      <section className="product-block">
-        <div className="row row-text">
-          <div className="col title text-[32px] font-[600] text-[#333333]">
-            <h2>{sections.product.heading}</h2>
-          </div>
-          <div className="col content text-[16px] text-[#333333]">
-            <p>{sections.product.description}</p>
-          </div>
-        </div>
-        {chunkArray(sections.product.items, 2).map((pair, rowIndex) => (
-          <div key={rowIndex} className="row">
-            {pair.map((item, itemIndex) => (
-              <div key={itemIndex} className="col">
-                <div className="img-container">
-                  <a href={item.link}>
-                    <img src={item.imageUrl} alt={item.title} />
-                    <div className="overlay">
-                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
-                      <p className="text-[16px]">{item.description}</p>
+          {/* Product Block */}
+          <section className="product-block">
+            <div className="row row-text">
+              <div className="col title text-[32px] font-[600] text-[#333333]">
+                <h2>{sections.product.heading}</h2>
+              </div>
+              <div className="col content text-[16px] text-[#333333]">
+                <p>{sections.product.description}</p>
+              </div>
+            </div>
+            {chunkArray(sections.product.items, 2).map((pair, rowIndex) => (
+              <div key={rowIndex} className="row">
+                {pair.map((item, itemIndex) => (
+                  <div key={itemIndex} className="col">
+                    <div className="img-container">
+                      <a href={item.link}>
+                        <img src={item.imageUrl} alt={item.title} />
+                        <div className="overlay">
+                          <h3 className="text-[24px] font-[600]">
+                            {item.title}
+                          </h3>
+                          <p className="text-[16px]">{item.description}</p>
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                </div>
+                  </div>
+                ))}
+                {pair.length === 1 && <div className="col"></div>}
               </div>
             ))}
-            {pair.length === 1 && <div className="col"></div>}
-          </div>
-        ))}
-      </section>
+          </section>
+        </>
+      )}
     </div>
   );
 };

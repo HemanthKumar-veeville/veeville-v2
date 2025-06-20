@@ -31,7 +31,10 @@ const WorkPage: React.FC = () => {
   const [isNavbarSticky, setIsNavbarSticky] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [submittedSearchQuery, setSubmittedSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState("All-projects");
+  const [showCarousel, setShowCarousel] = useState(true);
 
   // Project cards carousel
   const { trackRef, trackStyle, clonedItems } = useCarousel({
@@ -57,16 +60,10 @@ const WorkPage: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Check URL hash on mount
+  // Show/hide carousel based on search
   useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    if (hash) {
-      const tab = tabs.find((t) => t.id === hash);
-      if (tab) {
-        setActiveTab(tab.id);
-      }
-    }
-  }, []);
+    setShowCarousel(!submittedSearchQuery);
+  }, [submittedSearchQuery]);
 
   // Event handlers
   const toggleMenu = () => {
@@ -75,10 +72,26 @@ const WorkPage: React.FC = () => {
 
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
+    if (!isSearchOpen) {
+      setSearchQuery("");
+      setSubmittedSearchQuery("");
+    }
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmittedSearchQuery(searchQuery);
+    setIsSearchOpen(false); // Close search overlay after submission
   };
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
+    setSubmittedSearchQuery(""); // Clear search when changing tabs
+  };
+
+  const clearSearch = () => {
+    setSubmittedSearchQuery("");
+    setSearchQuery("");
   };
 
   return (
@@ -133,12 +146,19 @@ const WorkPage: React.FC = () => {
                     className="search-box"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    <input
-                      type="text"
-                      placeholder="Ask Bob Anything"
-                      className="search-input"
-                    />
+                    <form onSubmit={handleSearchSubmit}>
+                      <FontAwesomeIcon icon={faMagnifyingGlass} />
+                      <input
+                        type="text"
+                        placeholder="Search projects..."
+                        className="search-input"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                      />
+                      <button type="submit" className="search-submit">
+                        Search
+                      </button>
+                    </form>
                   </div>
                 </div>
               )}
@@ -147,71 +167,94 @@ const WorkPage: React.FC = () => {
         </ul>
       </nav>
 
-      {/* Carousel */}
-      <section className="design-carousel">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`dc-slide ${index === currentSlide ? "active" : ""}`}
-            style={{ backgroundImage: `url('${slide.image}')` }}
-          />
-        ))}
-
-        <div className="dc-text">
-          Design
-          <br />
-          <span>for life.</span>
-        </div>
-
-        <div className="dc-dots">
-          {slides.map((_, index) => (
-            <div
-              key={index}
-              className={`dc-dot ${index === currentSlide ? "active" : ""}`}
-              onClick={() => setCurrentSlide(index)}
-              data-index={index}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* Tab Filter Section */}
-      <section className="tab-filter-section">
-        <div className="tab-buttons">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              className={`tab-button ${activeTab === tab.id ? "active" : ""}`}
-              data-tab={tab.id}
-              id={tab.id}
-              onClick={() => handleTabClick(tab.id)}
-            >
-              {tab.label}
+      {/* Show search results summary if there's a search query */}
+      {submittedSearchQuery && (
+        <div className="search-results-summary">
+          <div className="container">
+            <button onClick={clearSearch} className="clear-search">
+              Clear Search
             </button>
-          ))}
-        </div>
-      </section>
-
-      {/* Portfolio Sections */}
-      <PortfolioSection activeTab={activeTab} />
-
-      {/* Project Cards Carousel */}
-      <section className="project-cards-carousel">
-        <h2 className="section-title text-[32px] font-bold text-[#333333]">
-          Related Projects
-        </h2>
-        <div className="carousel-wrapper">
-          <div ref={trackRef} className="carousel-track" style={trackStyle}>
-            {clonedItems.map((project, index) => (
-              <div className="carousel-card" key={`${project.title}-${index}`}>
-                <img src={project.imageUrl} alt={project.title} />
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-              </div>
-            ))}
           </div>
         </div>
-      </section>
+      )}
+
+      {/* Carousel - only show if no search is active */}
+      {showCarousel && (
+        <section className="design-carousel">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`dc-slide ${index === currentSlide ? "active" : ""}`}
+              style={{ backgroundImage: `url('${slide.image}')` }}
+            />
+          ))}
+
+          <div className="dc-text">
+            Design
+            <br />
+            <span>for life.</span>
+          </div>
+
+          <div className="dc-dots">
+            {slides.map((_, index) => (
+              <div
+                key={index}
+                className={`dc-dot ${index === currentSlide ? "active" : ""}`}
+                onClick={() => setCurrentSlide(index)}
+                data-index={index}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Tab Filter Section - hide during search */}
+      {!submittedSearchQuery && (
+        <section className="tab-filter-section">
+          <div className="tab-buttons">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                className={`tab-button ${activeTab === tab.id ? "active" : ""}`}
+                data-tab={tab.id}
+                id={tab.id}
+                onClick={() => handleTabClick(tab.id)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Portfolio Section with search integration */}
+      <PortfolioSection
+        activeTab={activeTab}
+        searchQuery={submittedSearchQuery}
+      />
+
+      {/* Project Cards Carousel - only show if no search is active */}
+      {showCarousel && (
+        <section className="project-cards-carousel">
+          <h2 className="section-title text-[32px] font-bold text-[#333333]">
+            Related Projects
+          </h2>
+          <div className="carousel-wrapper">
+            <div ref={trackRef} className="carousel-track" style={trackStyle}>
+              {clonedItems.map((project, index) => (
+                <div
+                  className="carousel-card"
+                  key={`${project.title}-${index}`}
+                >
+                  <img src={project.imageUrl} alt={project.title} />
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Footer Section */}
       <section className="footer-section">
