@@ -31,7 +31,7 @@ const WorkPage: React.FC = () => {
   const [isNavbarSticky, setIsNavbarSticky] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("Brand-identity");
+  const [activeTab, setActiveTab] = useState("All-projects");
 
   // Project cards carousel
   const { trackRef, trackStyle, clonedItems } = useCarousel({

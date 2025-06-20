@@ -57,10 +57,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
       {/* Portfolio Section */}
       <section className="portfolio-section">
         <div className="row row-text">
-          <div className="col title">
+          <div className="col title text-[32px] font-[600] text-[#333333]">
             <h2>{SECTION_TITLES.PORTFOLIO.main}</h2>
           </div>
-          <div className="col content">
+          <div className="col content text-[16px] text-[#333333]">
             <p>{SECTION_TITLES.PORTFOLIO.description}</p>
           </div>
         </div>
@@ -73,8 +73,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
                   <a href={item.link}>
                     <img src={item.imageUrl} alt={item.title} />
                     <div className="overlay">
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
+                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
+                      <p className="text-[16px]">{item.description}</p>
                     </div>
                   </a>
                 </div>
@@ -89,13 +89,14 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
       {/* Gallery Block */}
       <section className="gallery-block">
         <div className="row row-text">
-          <div className="col title">
+          <div className="col title text-[32px] font-[600] text-[#333333]">
             <h2>{sections.gallery.heading}</h2>
           </div>
-          <div className="col content">
+          <div className="col content text-[16px] text-[#333333]">
             <p>{sections.gallery.description}</p>
           </div>
         </div>
+
         {chunkArray(sections.gallery.items, 2).map((pair, rowIndex) => (
           <div key={rowIndex} className="row">
             {pair.map((item, itemIndex) => (
@@ -104,8 +105,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
                   <a href={item.link}>
                     <img src={item.imageUrl} alt={item.title} />
                     <div className="overlay">
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
+                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
+                      <p className="text-[16px]">{item.description}</p>
                     </div>
                   </a>
                 </div>
@@ -119,10 +120,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
       {/* Creative Block */}
       <section className="creative-block">
         <div className="row row-text">
-          <div className="col title">
+          <div className="col title text-[32px] font-[600] text-[#333333]">
             <h2>{sections.creative.heading}</h2>
           </div>
-          <div className="col content">
+          <div className="col content text-[16px] text-[#333333]">
             <p>{sections.creative.description}</p>
           </div>
         </div>
@@ -134,8 +135,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
                   <a href={item.link}>
                     <img src={item.imageUrl} alt={item.title} />
                     <div className="overlay">
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
+                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
+                      <p className="text-[16px]">{item.description}</p>
                     </div>
                   </a>
                 </div>
@@ -149,10 +150,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
       {/* Inspire Block */}
       <section className="inspire-block">
         <div className="row row-text">
-          <div className="col title">
+          <div className="col title text-[32px] font-[600] text-[#333333]">
             <h2>{sections.inspire.heading}</h2>
           </div>
-          <div className="col content">
+          <div className="col content text-[16px] text-[#333333]">
             <p>{sections.inspire.description}</p>
           </div>
         </div>
@@ -164,8 +165,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
                   <a href={item.link}>
                     <img src={item.imageUrl} alt={item.title} />
                     <div className="overlay">
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
+                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
+                      <p className="text-[16px]">{item.description}</p>
                     </div>
                   </a>
                 </div>
@@ -179,10 +180,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
       {/* Vision Block */}
       <section className="vision-block">
         <div className="row row-text">
-          <div className="col title">
+          <div className="col title text-[32px] font-[600] text-[#333333]">
             <h2>{sections.vision.heading}</h2>
           </div>
-          <div className="col content">
+          <div className="col content text-[16px] text-[#333333]">
             <p>{sections.vision.description}</p>
           </div>
         </div>
@@ -194,8 +195,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
                   <a href={item.link}>
                     <img src={item.imageUrl} alt={item.title} />
                     <div className="overlay">
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
+                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
+                      <p className="text-[16px]">{item.description}</p>
                     </div>
                   </a>
                 </div>
@@ -209,10 +210,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
       {/* Identity Block */}
       <section className="identity-block">
         <div className="row row-text">
-          <div className="col title">
+          <div className="col title text-[32px] font-[600] text-[#333333]">
             <h2>{sections.identity.heading}</h2>
           </div>
-          <div className="col content">
+          <div className="col content text-[16px] text-[#333333]">
             <p>{sections.identity.description}</p>
           </div>
         </div>
@@ -224,8 +225,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
                   <a href={item.link}>
                     <img src={item.imageUrl} alt={item.title} />
                     <div className="overlay">
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
+                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
+                      <p className="text-[16px]">{item.description}</p>
                     </div>
                   </a>
                 </div>
@@ -239,10 +240,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
       {/* Essence Block */}
       <section className="essence-block">
         <div className="row row-text">
-          <div className="col title">
+          <div className="col title text-[32px] font-[600] text-[#333333]">
             <h2>{sections.essence.heading}</h2>
           </div>
-          <div className="col content">
+          <div className="col content text-[16px] text-[#333333]">
             <p>{sections.essence.description}</p>
           </div>
         </div>
@@ -254,8 +255,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
                   <a href={item.link}>
                     <img src={item.imageUrl} alt={item.title} />
                     <div className="overlay">
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
+                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
+                      <p className="text-[16px]">{item.description}</p>
                     </div>
                   </a>
                 </div>
@@ -269,10 +270,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
       {/* Product Block */}
       <section className="product-block">
         <div className="row row-text">
-          <div className="col title">
+          <div className="col title text-[32px] font-[600] text-[#333333]">
             <h2>{sections.product.heading}</h2>
           </div>
-          <div className="col content">
+          <div className="col content text-[16px] text-[#333333]">
             <p>{sections.product.description}</p>
           </div>
         </div>
@@ -284,8 +285,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ activeTab }) => {
                   <a href={item.link}>
                     <img src={item.imageUrl} alt={item.title} />
                     <div className="overlay">
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
+                      <h3 className="text-[24px] font-[600]">{item.title}</h3>
+                      <p className="text-[16px]">{item.description}</p>
                     </div>
                   </a>
                 </div>
