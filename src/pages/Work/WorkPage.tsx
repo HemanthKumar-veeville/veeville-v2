@@ -92,6 +92,7 @@ const WorkPage: React.FC = () => {
     e.preventDefault();
     setSubmittedSearchQuery(searchQuery);
     setIsSearchOpen(false); // Close search overlay after submission
+    window.scrollTo(0, 0); // Scroll to top when search is applied
   };
 
   const handleTabClick = (tab: string) => {
@@ -102,6 +103,7 @@ const WorkPage: React.FC = () => {
   const clearSearch = () => {
     setSubmittedSearchQuery("");
     setSearchQuery("");
+    window.scrollTo(0, 0); // Scroll to top when search is cleared
   };
 
   return (
