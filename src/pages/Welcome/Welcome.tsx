@@ -30,20 +30,6 @@ const Welcome = (): JSX.Element => {
 
   return (
     <div className="w-full overflow-x-hidden bg-white relative min-h-screen">
-      {/* Parallax Background */}
-      <div
-        className="fixed inset-0 w-full h-full"
-        style={{
-          backgroundImage: "url(/Background_Veeville.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundBlendMode: "normal",
-          transform: `translateY(${scrollPosition * 0.5}px)`,
-          transition: "transform 0.1s linear",
-        }}
-      />
-
       {/* Overlay for better text readability */}
       <div className="fixed inset-0 bg-white/40 backdrop-blur-[1px]"></div>
 
@@ -52,38 +38,35 @@ const Welcome = (): JSX.Element => {
         <header className="w-full pt-8 md:pt-10 flex-none flex justify-between items-start">
           <div className="w-36 sm:w-40 lg:w-48 transition-transform duration-300 ease-in-out hover:scale-105">
             <Link to="/">
-              <img
-                src="https://veeville.com/wp-content/uploads/2023/05/VeevilleLogo.png"
-                alt="Veeville Logo"
-                className="w-full h-auto object-contain"
-              />
+              <div className="col-span-2 md:col-span-1">
+                <p className="text-[#848688] italic font-['Georgia'] text-[36px] leading-relaxed">
+                  Veeville.
+                </p>
+              </div>
             </Link>
           </div>
 
-          <nav className="flex flex-col items-start space-y-5">
+          <nav className="flex flex-col items-start space-y-2">
             <div className="group flex items-center gap-3">
-              <Briefcase className="w-5 h-5 text-[#848688] transition-colors duration-300 group-hover:text-gray-900" />
               <Link
                 to="/work"
-                className="text-lg text-[#848688] group-hover:text-gray-900 transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-gray-900 after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full"
+                className="text-md text-[#848688] group-hover:text-[#f05847] transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#f05847] after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full hover:cursor-none"
               >
                 WORK
               </Link>
             </div>
             <div className="group flex items-center gap-3">
-              <Info className="w-5 h-5 text-[#848688] transition-colors duration-300 group-hover:text-gray-900" />
               <Link
                 to="/about"
-                className="text-lg text-[#848688] group-hover:text-gray-900 transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-gray-900 after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full"
+                className="text-md text-[#848688] group-hover:text-[#f05847] transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#f05847] after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full hover:cursor-none"
               >
                 ABOUT
               </Link>
             </div>
             <div className="group flex items-center gap-3">
-              <Mail className="w-5 h-5 text-[#848688] transition-colors duration-300 group-hover:text-gray-900" />
               <Link
                 to="/contact"
-                className="text-lg text-[#848688] group-hover:text-gray-900 transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-gray-900 after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full"
+                className="text-md text-[#848688] group-hover:text-[#f05847] transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#f05847] after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full hover:cursor-none"
               >
                 CONTACT
               </Link>
@@ -92,7 +75,7 @@ const Welcome = (): JSX.Element => {
         </header>
 
         {/* Main content */}
-        <main className="flex-1 py-16 md:py-20 flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-16">
+        <main className="mx-auto flex-1 py-16 md:py-20 flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-16">
           <div className="max-w-2xl w-full md:w-auto">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-8 md:mb-10 text-[#848688] tracking-tight">
               Namaskara!
@@ -120,14 +103,6 @@ const Welcome = (): JSX.Element => {
                 Explore this site and discover some of our recent work.
               </p>
             </div>
-          </div>
-
-          <div className="w-48 sm:w-56 lg:w-64 flex-shrink-0 transition-transform duration-500 ease-in-out hover:scale-110 hover:rotate-3">
-            <img
-              src="https://veeville.com/wp-content/uploads/2023/05/Tagline-1536x1536.png"
-              alt="If thou hast no horse thou must work thy ass off - Veeville motto"
-              className="w-full h-auto object-contain drop-shadow-lg"
-            />
           </div>
         </main>
 

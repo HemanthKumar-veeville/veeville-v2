@@ -22,6 +22,7 @@ const CustomCursor: React.FC = () => {
         left: `${position.x}px`,
         top: `${position.y}px`,
       }}
+      aria-hidden="true"
     />
   );
 };

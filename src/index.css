@@ -1073,16 +1073,29 @@ body {
 .custom-cursor {
   width: 15px;
   height: 15px;
-  background-color: #fc661a;
+  background-color: red;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.1s ease;
+  transition: transform 0.1s ease, opacity 0.2s ease;
   transform: translate(-50%, -50%);
+}
+
+/* Hide custom cursor when hovering over elements with hover:cursor-none */
+*:hover ~ .custom-cursor {
+  opacity: 0;
 }
 
 /* Show default cursor on clickable elements for better UX */
 a, button, input, select, textarea, [role="button"] {
   cursor: none;
+}
+
+/* Hide both default and custom cursor on hover:cursor-none elements */
+.hover\:cursor-none:hover {
+  cursor: none !important;
+}
+.hover\:cursor-none:hover ~ .custom-cursor {
+  opacity: 0;
 } 
