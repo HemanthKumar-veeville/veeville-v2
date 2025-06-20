@@ -1078,13 +1078,14 @@ body {
   position: fixed;
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.1s ease, opacity 0.2s ease;
+  transition: transform 0.1s ease, opacity 0.2s ease, background-color 0.3s ease;
   transform: translate(-50%, -50%);
 }
 
 /* Hide custom cursor when hovering over elements with hover:cursor-none */
 *:hover ~ .custom-cursor {
-  opacity: 0;
+  /* opacity: 0; */
+  background-color: transparent;
 }
 
 /* Show default cursor on clickable elements for better UX */
