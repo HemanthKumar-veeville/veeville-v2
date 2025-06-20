@@ -1022,7 +1022,7 @@ body {
 
 /* Webkit scrollbar styling (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 2px;
   background-color: transparent;
 }
 
@@ -1041,9 +1041,15 @@ body {
   background-color: #666668;
 }
 
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
 /* Firefox scrollbar styling */
 * {
-  scrollbar-width: thin;
+  scrollbar-width: none;
   scrollbar-color: #848688 transparent;
 }
 
@@ -1067,7 +1073,7 @@ body {
 .custom-cursor {
   width: 15px;
   height: 15px;
-  background-color: #f05847;
+  background-color: #fc661a;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
