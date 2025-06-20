@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export const Welcome = (): JSX.Element => {
+const Welcome = (): JSX.Element => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -260,3 +260,5 @@ export const Welcome = (): JSX.Element => {
     </div>
   );
 };
+
+export default Welcome;
