@@ -10,22 +10,44 @@ import {
   Shield,
   Map,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export const Welcome = (): JSX.Element => {
-  return (
-    <div
-      className="w-full overflow-x-hidden bg-white relative min-h-screen"
-      style={{
-        backgroundImage: "url(/static/Background_Veeville.jpg)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-      <div className="min-h-screen max-w-[1200px] mx-auto flex flex-col px-8 md:px-12 relative z-10">
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.scrollY;
+      setScrollPosition(position);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <div className="w-full overflow-x-hidden bg-white relative min-h-screen">
+      {/* Parallax Background */}
+      <div
+        className="fixed inset-0 w-full h-full"
+        style={{
+          backgroundImage: "url(/Background_Veeville.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundBlendMode: "normal",
+          transform: `translateY(${scrollPosition * 0.5}px)`,
+          transition: "transform 0.1s linear",
+        }}
+      />
+
+      {/* Overlay for better text readability */}
+      <div className="fixed inset-0 bg-white/40 backdrop-blur-[1px]"></div>
+
+      <div className="min-h-screen max-w-screen mx-auto flex flex-col px-8 md:px-12 relative z-10">
         {/* Header with logo and navigation */}
         <header className="w-full pt-8 md:pt-10 flex-none flex justify-between items-start">
           <div className="w-36 sm:w-40 lg:w-48 transition-transform duration-300 ease-in-out hover:scale-105">
@@ -38,7 +60,7 @@ export const Welcome = (): JSX.Element => {
             </Link>
           </div>
 
-          <nav className="flex flex-col items-end space-y-5">
+          <nav className="flex flex-col items-start space-y-5">
             <div className="group flex items-center gap-3">
               <Briefcase className="w-5 h-5 text-[#848688] transition-colors duration-300 group-hover:text-gray-900" />
               <Link
@@ -114,7 +136,9 @@ export const Welcome = (): JSX.Element => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {/* Column 1 - Copyright */}
             <div className="col-span-2 md:col-span-1">
-              <p className="text-[#848688] text-sm font-medium mb-2">© 2023</p>
+              <p className="text-[#848688] text-sm font-medium mb-2">
+                © {new Date().getFullYear()}
+              </p>
               <p className="text-[#848688] italic font-['Georgia'] text-[24px] leading-relaxed">
                 Veeville.
               </p>
