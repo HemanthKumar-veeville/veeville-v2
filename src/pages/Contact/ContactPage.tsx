@@ -14,6 +14,7 @@ import {
   faXmark,
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
+import { API_BASE_URL } from "../Work/constants";
 
 const ContactPage: React.FC = () => {
   const [currentTime, setCurrentTime] = useState<string>("");
@@ -81,7 +82,7 @@ const ContactPage: React.FC = () => {
         <div className="logo">
           <Link to="/" className="logo-link">
             <img
-              src="http://localhost:1337/uploads/Logo_Image_e91355f03e.webp"
+              src={`${API_BASE_URL}/uploads/Logo_Image_e91355f03e.webp`}
               alt="Veeville Logo"
               className="logo-image"
             />
@@ -151,7 +152,7 @@ const ContactPage: React.FC = () => {
       {/* Banner Section */}
       <section className="stamina-banner">
         <img
-          src="http://localhost:1337/uploads/Contact_Banner_acc5cd1db2.webp"
+          src={`${API_BASE_URL}/uploads/Contact_Banner_acc5cd1db2.webp`}
           alt="Banner Image"
           className="stamina-banner__image"
         />
@@ -201,24 +202,6 @@ const ContactPage: React.FC = () => {
                 getpersonal@veeville.com
               </a>
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Data Section */}
-      <section className="contact-data">
-        <div className="contact-data-container">
-          <div className="contact-data-left">
-            <img
-              src="https://pearlfisher.wpenginepowered.com/wp-content/uploads/2023/11/Secondary_Imagery-a1-1.jpg"
-              alt="Left Image"
-            />
-          </div>
-          <div className="contact-data-right">
-            <img
-              src="https://pearlfisher.wpenginepowered.com/wp-content/uploads/2023/11/Secondary_Imagery-b1.jpg"
-              alt="Right Image"
-            />
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../pages/Work/Work.module.css";
+import { API_BASE_URL } from "../../pages/Work/constants";
 
 interface NavbarProps {
   isSticky: boolean;
@@ -33,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({
       <div className={styles.logo}>
         <Link to="/" className={styles.logoLink}>
           <img
-            src="http://localhost:1337/uploads/Logo_Image_e91355f03e.webp"
+            src={`${API_BASE_URL}/uploads/Logo_Image_e91355f03e.webp`}
             alt="Veeville Logo"
             className={styles.logoImage}
           />

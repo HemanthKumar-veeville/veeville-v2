@@ -24,6 +24,7 @@ import {
 } from "./data";
 import { useCarousel } from "../../lib/hooks/useCarousel";
 import PortfolioSection from "../../components/ui/PortfolioSection";
+import { API_BASE_URL } from "./constants";
 
 const WorkPage: React.FC = () => {
   // State
@@ -113,7 +114,7 @@ const WorkPage: React.FC = () => {
         <div className="logo">
           <Link to="/" className="logo-link">
             <img
-              src="http://localhost:1337/uploads/Logo_Image_e91355f03e.webp"
+              src={`${API_BASE_URL}/uploads/Logo_Image_e91355f03e.webp`}
               alt="Veeville Logo"
               className="logo-image"
             />
