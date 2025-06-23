@@ -21,7 +21,7 @@ const FloatingMenu: React.FC = () => {
   }, []);
 
   return (
-    <div ref={menuRef} className="fixed bottom-8 right-8 z-50">
+    <div ref={menuRef} className="fixed bottom-8 right-8 z-[9998]">
       <div className="relative">
         <div
           className={`absolute right-0 bottom-0 flex items-center justify-end transition-all duration-500 ease-in-out origin-right ${

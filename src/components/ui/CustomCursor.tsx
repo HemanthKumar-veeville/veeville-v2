@@ -21,6 +21,7 @@ const CustomCursor: React.FC = () => {
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
+        zIndex: 9999,
       }}
       aria-hidden="true"
     />
