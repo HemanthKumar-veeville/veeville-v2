@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { sections, sectionMap, portfolioItems } from "../../pages/Work/data";
 import { SECTION_TITLES } from "../../pages/Work/constants";
 import { PortfolioItem } from "../../pages/Work/types";
@@ -24,6 +25,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   searchQuery = "",
   setSearchQuery,
 }): JSX.Element => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (searchQuery) {
       // When searching, show all sections
@@ -138,13 +141,23 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
             {pair.map((item) => (
               <div key={item.id} className="col">
                 <div className="img-container">
-                  <a href={item.link}>
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => navigate(item.link)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        navigate(item.link);
+                      }
+                    }}
+                    style={{ cursor: "pointer" }}
+                  >
                     <img src={item.imageUrl} alt={item.title} />
                     <div className="overlay">
                       <h3 className="text-[24px] font-[600]">{item.title}</h3>
                       <p className="text-[16px]">{item.description}</p>
                     </div>
-                  </a>
+                  </div>
                 </div>
               </div>
             ))}
@@ -172,7 +185,17 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 {pair.map((item, itemIndex) => (
                   <div key={itemIndex} className="col">
                     <div className="img-container">
-                      <a href={item.link}>
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => navigate(item.link)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            navigate(item.link);
+                          }
+                        }}
+                        style={{ cursor: "pointer" }}
+                      >
                         <img src={item.imageUrl} alt={item.title} />
                         <div className="overlay">
                           <h3 className="text-[24px] font-[600]">
@@ -180,7 +203,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                           </h3>
                           <p className="text-[16px]">{item.description}</p>
                         </div>
-                      </a>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -204,7 +227,17 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 {pair.map((item, itemIndex) => (
                   <div key={itemIndex} className="col">
                     <div className="img-container">
-                      <a href={item.link}>
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => navigate(item.link)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            navigate(item.link);
+                          }
+                        }}
+                        style={{ cursor: "pointer" }}
+                      >
                         <img src={item.imageUrl} alt={item.title} />
                         <div className="overlay">
                           <h3 className="text-[24px] font-[600]">
@@ -212,7 +245,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                           </h3>
                           <p className="text-[16px]">{item.description}</p>
                         </div>
-                      </a>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -236,7 +269,17 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 {pair.map((item, itemIndex) => (
                   <div key={itemIndex} className="col">
                     <div className="img-container">
-                      <a href={item.link}>
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => navigate(item.link)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            navigate(item.link);
+                          }
+                        }}
+                        style={{ cursor: "pointer" }}
+                      >
                         <img src={item.imageUrl} alt={item.title} />
                         <div className="overlay">
                           <h3 className="text-[24px] font-[600]">
@@ -244,7 +287,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                           </h3>
                           <p className="text-[16px]">{item.description}</p>
                         </div>
-                      </a>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -268,7 +311,17 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 {pair.map((item, itemIndex) => (
                   <div key={itemIndex} className="col">
                     <div className="img-container">
-                      <a href={item.link}>
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => navigate(item.link)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            navigate(item.link);
+                          }
+                        }}
+                        style={{ cursor: "pointer" }}
+                      >
                         <img src={item.imageUrl} alt={item.title} />
                         <div className="overlay">
                           <h3 className="text-[24px] font-[600]">
@@ -276,7 +329,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                           </h3>
                           <p className="text-[16px]">{item.description}</p>
                         </div>
-                      </a>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -300,7 +353,17 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 {pair.map((item, itemIndex) => (
                   <div key={itemIndex} className="col">
                     <div className="img-container">
-                      <a href={item.link}>
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => navigate(item.link)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            navigate(item.link);
+                          }
+                        }}
+                        style={{ cursor: "pointer" }}
+                      >
                         <img src={item.imageUrl} alt={item.title} />
                         <div className="overlay">
                           <h3 className="text-[24px] font-[600]">
@@ -308,7 +371,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                           </h3>
                           <p className="text-[16px]">{item.description}</p>
                         </div>
-                      </a>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -332,7 +395,17 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 {pair.map((item, itemIndex) => (
                   <div key={itemIndex} className="col">
                     <div className="img-container">
-                      <a href={item.link}>
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => navigate(item.link)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            navigate(item.link);
+                          }
+                        }}
+                        style={{ cursor: "pointer" }}
+                      >
                         <img src={item.imageUrl} alt={item.title} />
                         <div className="overlay">
                           <h3 className="text-[24px] font-[600]">
@@ -340,7 +413,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                           </h3>
                           <p className="text-[16px]">{item.description}</p>
                         </div>
-                      </a>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -364,7 +437,17 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 {pair.map((item, itemIndex) => (
                   <div key={itemIndex} className="col">
                     <div className="img-container">
-                      <a href={item.link}>
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => navigate(item.link)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            navigate(item.link);
+                          }
+                        }}
+                        style={{ cursor: "pointer" }}
+                      >
                         <img src={item.imageUrl} alt={item.title} />
                         <div className="overlay">
                           <h3 className="text-[24px] font-[600]">
@@ -372,7 +455,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                           </h3>
                           <p className="text-[16px]">{item.description}</p>
                         </div>
-                      </a>
+                      </div>
                     </div>
                   </div>
                 ))}

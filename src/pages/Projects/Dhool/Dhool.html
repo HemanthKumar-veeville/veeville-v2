@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Veeville</title>
+    <link rel="stylesheet" href="Dhool.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <link rel="icon" href="http://localhost:1337/uploads/Logoimage_0681325574.png" type="image/x-icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+
+
+
+
+</head>
+
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="../index.html" class="logo-link">
+                <img src="http://localhost:1337/uploads/Logo_Image_e91355f03e.webp" alt="Veeville Logo" class="logo-image" />
+            </a>
+        </div>
+
+        <div class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="../work.html">WORK</a></li>
+            <li><a href="../about.html">ABOUT</a></li>
+            <li><a href="../contact.html">CONTACT</a></li>
+
+            <!-- ADD THIS HERE -->
+            <li>
+                <div class="search-container">
+                    <div class="search-icon" onclick="toggleSearch()">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+
+                    </div>
+                    <div id="search-overlay">
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+
+                            <input type="text" placeholder="Ask Bob Anything" class="search-input" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- END -->
+        </ul>
+    </nav>
+
+
+
+  
+    <section class="stamina-banner">
+        <img src="http://localhost:1337/uploads/banner_91262070c4.webp" alt="Banner Image" class="stamina-banner__image" />
+      </section>
+
+
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-left">
+                <h2>
+                    Restaging the Global Rum Icon, Havana Club
+                </h2>
+            </div>
+            <div class="about-right">
+                <p>
+                    Havana Club partnered with Pearlfisher to embark on an ambitious portfolio redesign, activating a
+                    new segmentation strategy while reinforcing its reputation as a premium, global icon in rum.
+                    Spanning from some of the most accessible liquids to the rarest blends in market, Havana Club looked
+                    to harmonise the range while simultaneously highlighting the unique qualities and character of each
+                    rum. Taking inspiration from the vibrant city of Havana, Cuba—the city the brand calls home—the
+                    refreshed portfolio is diverse, storied and full of character, bringing to life the brand’s rich
+                    legacy in rum-making and elevating its Cuban DNA through a timeless yet modern transformation.
+                </p>
+            </div>
+    </section>
+
+    <section class="image-banner">
+        <div class="image-wrapper">
+            <img src="http://localhost:1337/uploads/middle_image1_3cd73202dd.webp"
+                alt="Floral Cups" class="banner-img" />
+        </div>
+    </section>
+
+    <section class="recollagen-section">
+        <div class="recollagen-left">
+            <img src="http://localhost:1337/uploads/layout_image1_4a4f666e4c.webp"
+                alt="Top visual with text" class="recollagen-image top-image" />
+
+        </div>
+        <div class="recollagen-right">
+            <p>
+                Our strategic vision for ReCollagen was to combine its medical-grade efficacy with the sensory delights
+                and daily rituals of skincare routines, creating a collagen-specific offering reflective of its deep
+                expertise and care.
+                <br /><br />
+                This transformation aimed to go beyond superficial rejuvenation, positioning ReCollagen as a leader in
+                holistic collagen skincare, helping people replenish the look and feel of healthy, radiant skin while
+                embracing the notion that youth is present in all of us, regardless of age. It just needs to be awakened
+                and nurtured a bit more as we get older.
+            </p>
+        </div>
+    </section>
+
+    <section class="image-banner">
+        <div class="image-wrapper">
+            <img src="http://localhost:1337/uploads/middle_image_2_da754db459.webp"
+                alt="Floral Cups" class="banner-img" />
+        </div>
+    </section>
+
+    <section class="project-intro">
+        <div class="project-intro__column project-intro__text">
+            <p>
+                We crafted the essence of the distillation process and the ingredients into a distinctive, exploratory,
+                and illustrative ‘art of nature’ design language to bring the product’s beauty and integrity to the
+                fore. This approach reimagines the natural ingredients, and each variant is brought to life through
+                artistic compositions of Seedlip’s botanicals. The Seedlip monogram plays homage to the heritage of its
+                distillation, elegantly housed within the iconic ‘S.’
+            </p>
+        </div>
+        <div class="project-intro__column project-intro__image">
+            <img src="http://localhost:1337/uploads/layout_image2_564d589620.webp"
+                alt="Tea Packaging Design" />
+        </div>
+    </section>
+
+    <section class="image-banner">
+        <div class="image-wrapper">
+            <img src="http://localhost:1337/uploads/middle_image3_481c916312.webp"
+                alt="Floral Cups" class="banner-img" />
+        </div>
+    </section>
+
+
+    <section class="image-banner last-middle">
+        <div class="image-wrapper">
+            <img src="http://localhost:1337/uploads/middle_image_4_823673c94c.webp"
+                alt="Floral Cups" class="banner-img" />
+        </div>
+    </section>
+
+
+
+
+
+  
+    
+
+    
+
+   
+
+
+    <section class="project-navigation-section">
+        <hr class="divider">
+        <div class="project-navigation">
+            <a class="prev-project" href="MTR.html">Previous Project</a>
+            <a href="../work.html#Brand-identity" class="Categories-data">
+                <span class="branding-title">Brand Identity</span>
+            </a>
+            <a class="next-project" href="Kheemasutra.html">Next Project</a>
+        </div>
+    </section>
+
+
+
+
+    <section class="project-cards-carousel">
+        <h2 class="section-title">Related Projects</h2>
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="carousel-track">
+                <div class="carousel-card">
+                    <img src="http://localhost:1337/uploads/Thumbnail_Akamai_e98ec23a74.webp" alt="Project 1" />
+                    <h3>Akamai</h3>
+                    <p>Fusing personality and authenticity</p>
+                </div>
+                <div class="carousel-card">
+                    <img src="http://localhost:1337/uploads/BSF_Banner_8bb1b6c31e.webp" alt="Project 2" />
+                    <h3>BSF</h3>
+                    <p>Reasserting leadership and expertise</p>
+                </div>
+                <div class="carousel-card">
+                    <img src="http://localhost:1337/uploads/DRL_Thumbnail_8bd6627090.webp" alt="Project 3" />
+                    <h3>DRL Report</h3>
+                    <p>Treasuring story and symbolism</p>
+                </div>
+                <div class="carousel-card">
+                    <img src="http://localhost:1337/uploads/KDEM_thumbanail_f37f8768a9.webp" alt="Project 4" />
+                    <h3>KDEM Project</h3>
+                    <p>Revitalizing energy with design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="section-datas">
+        <div class="sticky-data" id="stickyData">
+            <div class="icon-wrapper left-icon">
+                <a href="MTR.html">
+                    <i class="fas fa-arrow-left"></i>
+                    <span class="tooltip left-tooltip">Previous Project</span>
+                </a>
+            </div>
+
+            <a href="../work.html#Brand-identity" class="sticky-card">
+                <span class="sticky-data-text">Brand Identity</span>
+            </a>
+
+            <div class="icon-wrapper right-icon">
+                <a href="Kheemasutra.html">
+                    <i class="fas fa-arrow-right"></i>
+                    <span class="tooltip right-tooltip">Next Project</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="footer-section">
+        <div class="columns-row">
+            <div class="column">
+                <h3>Contact</h3>
+                <p>Let's chat.</p>
+            </div>
+
+            <div class="column">
+                <h3>Newsletter</h3>
+                <p>Subscribe.</p>
+            </div>
+
+            <div class="column">
+                <h3>Join us</h3>
+                             <a  class="footer-carrer" href="../carrer.html">
+          
+          
+                    <p>Careers.</p>
+    </a>
+            </div>
+
+            <div class="spacer-column"></div>
+        </div>
+
+        <div class="info-row">
+            <div class="locations">
+                <span>Bengaluru.</span>
+                <span></span>
+            </div>
+
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                © Veeville 2009 - 2025
+                <a href="#">Privacy Policy</a>
+                <a href="#">Sitemap</a>
+            </p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- Navbar -->
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            highlightActivePage();
+            setupHamburgerMenu();
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setupStickyNavbar();
+        });
+
+        function setupStickyNavbar() {
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelectorAll('.nav-links li a');
+            const hamburgerIcon = document.querySelector('.hamburger i');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) { // Threshold can be adjusted
+                    navbar.classList.add('sticky');
+                    navLinks.forEach(link => link.classList.add('sticky-link'));
+                    hamburgerIcon.classList.add('sticky-icon');
+                } else {
+                    navbar.classList.remove('sticky');
+                    navLinks.forEach(link => link.classList.remove('sticky-link'));
+                    hamburgerIcon.classList.remove('sticky-icon');
+                }
+            });
+        }
+
+
+
+        function highlightActivePage() {
+            const currentPath = window.location.pathname.split("/").pop();
+            const menuItems = document.querySelectorAll('.nav-links li a');
+
+            menuItems.forEach(item => {
+                if (item.getAttribute('href') === currentPath) {
+                    item.classList.add("active");
+                }
+            });
+        }
+
+        function setupHamburgerMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const hamburgerIcon = document.querySelector('.hamburger i');
+
+            hamburger.addEventListener("click", () => {
+                toggleMenu(navLinks, hamburgerIcon, hamburger);
+            });
+        }
+
+        function toggleMenu(navLinks, hamburgerIcon, hamburger) {
+            navLinks.classList.toggle("active");
+
+            if (navLinks.classList.contains("active")) {
+                hamburgerIcon.classList.remove("fa-bars");
+                hamburgerIcon.classList.add("fa-xmark");
+                hamburger.classList.add("close-style");  // add custom style
+            } else {
+                hamburgerIcon.classList.remove("fa-xmark");
+                hamburgerIcon.classList.add("fa-bars");
+                hamburger.classList.remove("close-style");  // remove custom style
+            }
+        }
+
+    </script>
+
+
+
+    <!-- sticky-bar -->
+    <script>
+        function initializeStickyBar() {
+            const stickyData = document.getElementById('stickyData');
+            const footer = document.querySelector('.footer-section');
+
+            window.addEventListener('scroll', handleStickyBarScroll);
+
+            function handleStickyBarScroll() {
+                const footerTop = footer.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                toggleStickyBarVisibility();
+                hideStickyBarNearFooter(footerTop, windowHeight);
+            }
+
+            function toggleStickyBarVisibility() {
+                if (window.scrollY > 20) {
+                    stickyData.classList.remove('hidden');
+                } else {
+                    stickyData.classList.add('hidden');
+                }
+            }
+
+            function hideStickyBarNearFooter(footerTop, windowHeight) {
+                if (footerTop <= windowHeight) {
+                    stickyData.style.opacity = '0';
+                    stickyData.style.pointerEvents = 'none';
+                } else {
+                    stickyData.style.opacity = '1';
+                    stickyData.style.pointerEvents = 'all';
+                }
+            }
+        }
+
+        // Call the function to initialize the sticky bar behavior
+        initializeStickyBar();
+
+
+    </script>
+
+
+    <!-- search bar -->
+
+
+
+    <script>
+        function toggleSearch() {
+            const overlay = document.getElementById("search-overlay");
+            const inputField = overlay.querySelector("input");
+
+            inputField.value = ''; // reset input every time
+            overlay.style.display = "flex";
+            inputField.focus();
+
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) {
+                    overlay.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+
+    <!-- News Carousel -->
+
+    <script>
+
+        function initializeCardCarousel({
+            trackSelector = '#carousel-track',
+            scrollInterval = 3000,
+            scrollStep = 1
+        } = {}) {
+            const track = document.querySelector(trackSelector);
+            if (!track) return console.warn('Carousel track not found.');
+
+            let cards = Array.from(track.children);
+            const originalCardCount = cards.length;
+
+            // Clone cards to avoid white space during infinite scroll
+            cards.forEach(card => {
+                const clone = card.cloneNode(true);
+                clone.classList.add('clone');
+                track.appendChild(clone);
+            });
+
+            let index = 0;
+
+            function getCardWidth() {
+                const style = window.getComputedStyle(cards[0]);
+                const marginRight = parseFloat(style.marginRight) || 0;
+                return cards[0].offsetWidth + marginRight;
+            }
+
+            function scrollNext() {
+                const cardWidth = getCardWidth();
+                index++;
+                track.style.transition = 'transform 0.5s ease';
+                track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+                if (index >= originalCardCount) {
+                    setTimeout(() => {
+                        track.style.transition = 'none';
+                        index = 0;
+                        track.style.transform = `translateX(0px)`;
+                    }, 500);
+                }
+            }
+
+            setInterval(scrollNext, scrollInterval);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeCardCarousel();
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

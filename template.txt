@@ -1,0 +1,1 @@
+Develop the @Akamai.tsx using the @Akamai.html and @Akamai.css with pixel perfect match of UI/UX with same styles used from @Akamai.css but with React tsx implmentation instead of direct html but with  pixel perfect match of everything.

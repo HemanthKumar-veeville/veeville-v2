@@ -22,6 +22,7 @@ import {
   sections,
   socialLinks,
 } from "./data";
+import { RelatedProject } from "./types";
 import { useCarousel } from "../../lib/hooks/useCarousel";
 import PortfolioSection from "../../components/ui/PortfolioSection";
 import { API_BASE_URL } from "./constants";
@@ -194,7 +195,7 @@ const WorkPage: React.FC = () => {
           </h2>
           <div className="carousel-wrapper">
             <div ref={trackRef} className="carousel-track" style={trackStyle}>
-              {clonedItems.map((project, index) => (
+              {clonedItems.map((project: RelatedProject, index: number) => (
                 <div
                   className="carousel-card"
                   key={`${project.title}-${index}`}
