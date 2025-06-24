@@ -35,6 +35,7 @@ const FloatingMenu: React.FC = () => {
   const menuItems = [
     { path: "/", label: "HOME" },
     { path: "/work", label: "WORK" },
+    { path: "/clients", label: "CLIENTS" },
     { path: "/about", label: "ABOUT" },
     { path: "/contact", label: "CONTACT" },
   ].filter((item) => item.path !== location.pathname);

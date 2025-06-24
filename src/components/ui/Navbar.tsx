@@ -50,6 +50,9 @@ const Navbar: React.FC<NavbarProps> = ({
           <Link to="/work">WORK</Link>
         </li>
         <li>
+          <Link to="/clients">CLIENTS</Link>
+        </li>
+        <li>
           <Link to="/about">ABOUT</Link>
         </li>
         <li>
