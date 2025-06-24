@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { clientsData, clientCategories, ClientData } from "./data";
 import TabFilter from "../../components/ui/TabFilter";
 import "./Client.css";
+import client1 from "../../../static/client1.jpg";
+import client2 from "../../../static/client2.jpg";
+import client3 from "../../../static/client3.jpg";
 
 const Client = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -25,7 +28,18 @@ const Client = () => {
         <p className="mt-4">Here's a partial list of our clients.</p>
       </div>
 
-      <div className="client-grid"></div>
+      <div>
+        <img
+          src={client1}
+          alt="client"
+          className="w-full h-full object-cover"
+        />
+        <img
+          src={client2}
+          alt="client"
+          className="w-full h-full object-cover"
+        />
+      </div>
     </div>
   );
 };
