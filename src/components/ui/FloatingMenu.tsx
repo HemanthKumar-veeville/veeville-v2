@@ -44,7 +44,7 @@ const FloatingMenu: React.FC = () => {
     <>
       {/* Backdrop blur overlay with scaled animation */}
       <div
-        className={`fixed inset-0 bg-red backdrop-blur-md transition-all duration-700 z-[9997] ${
+        className={`fixed inset-0 bg-black/50 backdrop-blur-lg transition-all duration-700 z-[9997] ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsOpen(false)}
