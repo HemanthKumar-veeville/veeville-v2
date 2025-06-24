@@ -25,6 +25,7 @@ export interface RelatedProject {
   imageUrl: string;
   title: string;
   description: string;
+  link: string;
 }
 
 export interface SocialLink {
@@ -62,8 +63,19 @@ export interface SectionBlock {
 
 export interface PortfolioItem {
   id: string;
+  image: string;
   title: string;
   description: string;
-  imageUrl: string;
+  category: string;
   link: string;
+}
+
+export interface Section {
+  id: string;
+  items: PortfolioItem[];
+}
+
+export interface Tab {
+  id: string;
+  label: string;
 } 

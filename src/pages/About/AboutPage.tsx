@@ -16,6 +16,8 @@ import {
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 
+import Footer from "../../components/ui/Footer/Footer";
+
 interface TeamMember {
   name: string;
   location: string;
@@ -257,57 +259,6 @@ const AboutPage: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section className="footer-section">
-        <div className="columns-row">
-          <div className="column">
-            <h3>Contact</h3>
-            <p>Let's chat.</p>
-          </div>
-          <div className="column">
-            <h3>Newsletter</h3>
-            <p>Subscribe.</p>
-          </div>
-          <div className="column">
-            <h3>Join us</h3>
-            <Link to="/career" className="footer-carrer">
-              <p>Careers.</p>
-            </Link>
-          </div>
-          <div className="spacer-column"></div>
-        </div>
-
-        <div className="info-row">
-          <div className="locations">
-            <span>Bengaluru.</span>
-          </div>
-        </div>
-
-        <div className="footer-bottom">
-          <p>
-            © Veeville 2009 - 2025
-            <Link to="/privacy-policy">Privacy Policy</Link>
-            <Link to="/sitemap">Sitemap</Link>
-          </p>
-          <div className="social-icons">
-            <a href="#" aria-label="Facebook">
-              <FontAwesomeIcon icon={faFacebookF} />
-            </a>
-            <a href="#" aria-label="LinkedIn">
-              <FontAwesomeIcon icon={faLinkedinIn} />
-            </a>
-            <a href="#" aria-label="Instagram">
-              <FontAwesomeIcon icon={faInstagram} />
-            </a>
-            <a href="#" aria-label="YouTube">
-              <FontAwesomeIcon icon={faYoutube} />
-            </a>
-            <a href="#" aria-label="Twitter">
-              <FontAwesomeIcon icon={faTwitter} />
-            </a>
-          </div>
         </div>
       </section>
     </>

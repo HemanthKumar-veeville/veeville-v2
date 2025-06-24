@@ -25,7 +25,9 @@ import {
 import { RelatedProject } from "./types";
 import { useCarousel } from "../../lib/hooks/useCarousel";
 import PortfolioSection from "../../components/ui/PortfolioSection";
+import RelatedProjectsCarousel from "../../components/ui/RelatedProjectsCarousel";
 import { API_BASE_URL } from "./constants";
+import Footer from "@/components/ui/Footer/Footer";
 
 const WorkPage: React.FC = () => {
   // State
@@ -40,12 +42,6 @@ const WorkPage: React.FC = () => {
 
   // Refs
   const searchInputRef = useRef<HTMLInputElement>(null);
-
-  // Project cards carousel
-  const { trackRef, trackStyle, clonedItems } = useCarousel({
-    items: relatedProjects,
-    scrollInterval: 3000,
-  });
 
   // Effects
   useEffect(() => {
@@ -189,78 +185,8 @@ const WorkPage: React.FC = () => {
 
       {/* Project Cards Carousel - only show if no search is active */}
       {showCarousel && (
-        <section className="project-cards-carousel">
-          <h2 className="section-title text-[32px] font-bold text-[#333333]">
-            Related Projects
-          </h2>
-          <div className="carousel-wrapper">
-            <div ref={trackRef} className="carousel-track" style={trackStyle}>
-              {clonedItems.map((project: RelatedProject, index: number) => (
-                <div
-                  className="carousel-card"
-                  key={`${project.title}-${index}`}
-                >
-                  <img src={project.imageUrl} alt={project.title} />
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <RelatedProjectsCarousel relatedProjects={relatedProjects} />
       )}
-
-      {/* Footer Section */}
-      <section className="footer-section">
-        <div className="columns-row">
-          <div className="column">
-            <h3>Contact</h3>
-            <p>Let's chat.</p>
-          </div>
-          <div className="column">
-            <h3>Newsletter</h3>
-            <p>Subscribe.</p>
-          </div>
-          <div className="column">
-            <h3>Join us</h3>
-            <Link to="/career" className="footer-carrer">
-              <p>Careers.</p>
-            </Link>
-          </div>
-          <div className="spacer-column"></div>
-        </div>
-
-        <div className="info-row">
-          <div className="locations">
-            <span>Bengaluru.</span>
-          </div>
-        </div>
-
-        <div className="footer-bottom">
-          <p>
-            © Veeville 2009 - 2025
-            <Link to="/privacy-policy">Privacy Policy</Link>
-            <Link to="/sitemap">Sitemap</Link>
-          </p>
-          <div className="social-icons">
-            <a href={socialLinks[0].url} aria-label="Facebook">
-              <FontAwesomeIcon icon={faFacebookF} />
-            </a>
-            <a href={socialLinks[1].url} aria-label="LinkedIn">
-              <FontAwesomeIcon icon={faLinkedinIn} />
-            </a>
-            <a href={socialLinks[2].url} aria-label="Instagram">
-              <FontAwesomeIcon icon={faInstagram} />
-            </a>
-            <a href={socialLinks[3].url} aria-label="YouTube">
-              <FontAwesomeIcon icon={faYoutube} />
-            </a>
-            <a href={socialLinks[4].url} aria-label="Twitter">
-              <FontAwesomeIcon icon={faTwitter} />
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
