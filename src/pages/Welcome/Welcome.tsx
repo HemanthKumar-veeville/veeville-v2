@@ -1,33 +1,6 @@
 import { Link } from "react-router-dom";
-import {
-  Briefcase,
-  Info,
-  Mail,
-  FileText,
-  Users,
-  Building2,
-  MapPin,
-  Shield,
-  Map,
-} from "lucide-react";
-import { useEffect, useState } from "react";
 
 const Welcome = (): JSX.Element => {
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const position = window.scrollY;
-      setScrollPosition(position);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <div className="flex flex-col min-h-full">
       {/* Header with logo and navigation */}

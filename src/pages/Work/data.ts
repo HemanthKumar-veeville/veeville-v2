@@ -12,23 +12,23 @@ import { API_BASE_URL } from './constants';
 
 export const slides: Slide[] = [
   {
-    image: `${API_BASE_URL}/uploads/Top_Banner_c502c259dd.webp`,
+    image: `https://veeville-website.s3.ap-south-1.amazonaws.com/Project-Images/Booket/Top+Banner.webp`,
     alt: 'Design Slide 1',
   },
   {
-    image: `${API_BASE_URL}/uploads/Top_Banner_b6a01a6873.webp`,
+    image: `https://veeville-website.s3.ap-south-1.amazonaws.com/Project-Images/munch+tantra/Top+Banner.webp`,
     alt: 'Design Slide 2',
   },
   {
-    image: `${API_BASE_URL}/uploads/banner_image_30e24d56c0.webp`,
+    image: `https://veeville-website.s3.ap-south-1.amazonaws.com/Project-Images/Project+3-+MTR/banner+image.webp`,
     alt: 'Design Slide 3',
   },
   {
-    image: `${API_BASE_URL}/uploads/RE_Awards_Banner_d1871f8d5a.webp`,
+    image: `https://veeville-website.s3.ap-south-1.amazonaws.com/Project-Images/Project+3+-+Revolutionari+Awards/RE-Awards-Banner.webp`,
     alt: 'Design Slide 4',
   },
   {
-    image: `${API_BASE_URL}/uploads/DRL_Banner_a318e590cf.webp`,
+    image: `https://veeville-website.s3.ap-south-1.amazonaws.com/Project-Images/DRL+Report/DRL-Banner.webp`,
     alt: 'Design Slide 5',
   },
 ];
@@ -49,35 +49,35 @@ export const portfolioItems: PortfolioItem[] = [
     id: 'quaker',
     title: 'Quaker - Bowl of growth',
     description: 'Short description line.',
-    imageUrl: `${API_BASE_URL}/uploads/1_01_d8cfbaf4fa.webp`,
+    imageUrl: `https://veeville-website.s3.ap-south-1.amazonaws.com/Images/Work+page-Thumbnails/1-01.webp`,
     link: '/projects/quaker',
   },
   {
     id: 'booket',
     title: 'Booket',
     description: 'Short description line.',
-    imageUrl: `${API_BASE_URL}/uploads/1_02_fa51d2f7b6.webp`,
+    imageUrl: `https://veeville-website.s3.ap-south-1.amazonaws.com/Images/Work+page-Thumbnails/1-02.webp`,
     link: '/projects/booket',
   },
   {
     id: 'kdem',
     title: 'KDEM',
     description: 'Short description line.',
-    imageUrl: `${API_BASE_URL}/uploads/1_03_3009241765.webp`,
+    imageUrl: `https://veeville-website.s3.ap-south-1.amazonaws.com/Images/Work+page-Thumbnails/1-03.webp`,
     link: '/projects/kdem',
   },
   {
     id: 'levis',
     title: 'Levi\'s X Appeal',
     description: 'Short description line.',
-    imageUrl: `${API_BASE_URL}/uploads/1_04_17aa32288c.webp`,
+    imageUrl: `https://veeville-website.s3.ap-south-1.amazonaws.com/Images/Work+page-Thumbnails/1-04.webp`,
     link: '/projects/levis',
   },
   {
     id: 'lendersmark',
     title: 'Lendersmark',
     description: 'Short description line.',
-    imageUrl: `${API_BASE_URL}/uploads/1_05_95128ccf07.webp`,
+    imageUrl: `https://veeville-website.s3.ap-south-1.amazonaws.com/Images/Work+page-Thumbnails/1-05.webp`,
     link: '/projects/lendersmark',
   },
   {

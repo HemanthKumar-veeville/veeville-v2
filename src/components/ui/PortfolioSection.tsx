@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { sections, sectionMap, portfolioItems } from "../../pages/Work/data";
 import { SECTION_TITLES } from "../../pages/Work/constants";
 import { PortfolioItem } from "../../pages/Work/types";
@@ -25,8 +24,6 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   searchQuery = "",
   setSearchQuery,
 }): JSX.Element => {
-  const navigate = useNavigate();
-
   useEffect(() => {
     if (searchQuery) {
       // When searching, show all sections
@@ -144,10 +141,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                   <div
                     role="button"
                     tabIndex={0}
-                    onClick={() => navigate(item.link)}
+                    onClick={() => {}}
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
-                        navigate(item.link);
+                        // Remove navigation
                       }
                     }}
                     style={{ cursor: "pointer" }}
@@ -188,10 +185,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                       <div
                         role="button"
                         tabIndex={0}
-                        onClick={() => navigate(item.link)}
+                        onClick={() => {}}
                         onKeyDown={(e) => {
                           if (e.key === "Enter" || e.key === " ") {
-                            navigate(item.link);
+                            // Remove navigation
                           }
                         }}
                         style={{ cursor: "pointer" }}
@@ -230,10 +227,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                       <div
                         role="button"
                         tabIndex={0}
-                        onClick={() => navigate(item.link)}
+                        onClick={() => {}}
                         onKeyDown={(e) => {
                           if (e.key === "Enter" || e.key === " ") {
-                            navigate(item.link);
+                            // Remove navigation
                           }
                         }}
                         style={{ cursor: "pointer" }}
@@ -272,10 +269,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                       <div
                         role="button"
                         tabIndex={0}
-                        onClick={() => navigate(item.link)}
+                        onClick={() => {}}
                         onKeyDown={(e) => {
                           if (e.key === "Enter" || e.key === " ") {
-                            navigate(item.link);
+                            // Remove navigation
                           }
                         }}
                         style={{ cursor: "pointer" }}
@@ -314,10 +311,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                       <div
                         role="button"
                         tabIndex={0}
-                        onClick={() => navigate(item.link)}
+                        onClick={() => {}}
                         onKeyDown={(e) => {
                           if (e.key === "Enter" || e.key === " ") {
-                            navigate(item.link);
+                            // Remove navigation
                           }
                         }}
                         style={{ cursor: "pointer" }}
@@ -356,10 +353,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                       <div
                         role="button"
                         tabIndex={0}
-                        onClick={() => navigate(item.link)}
+                        onClick={() => {}}
                         onKeyDown={(e) => {
                           if (e.key === "Enter" || e.key === " ") {
-                            navigate(item.link);
+                            // Remove navigation
                           }
                         }}
                         style={{ cursor: "pointer" }}
@@ -398,10 +395,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                       <div
                         role="button"
                         tabIndex={0}
-                        onClick={() => navigate(item.link)}
+                        onClick={() => {}}
                         onKeyDown={(e) => {
                           if (e.key === "Enter" || e.key === " ") {
-                            navigate(item.link);
+                            // Remove navigation
                           }
                         }}
                         style={{ cursor: "pointer" }}
@@ -440,10 +437,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                       <div
                         role="button"
                         tabIndex={0}
-                        onClick={() => navigate(item.link)}
+                        onClick={() => {}}
                         onKeyDown={(e) => {
                           if (e.key === "Enter" || e.key === " ") {
-                            navigate(item.link);
+                            // Remove navigation
                           }
                         }}
                         style={{ cursor: "pointer" }}
