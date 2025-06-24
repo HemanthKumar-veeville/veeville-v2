@@ -96,7 +96,7 @@ const FloatingMenu: React.FC = () => {
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            <span className="text-5xl select-none">+</span>
+            <span className="text-[30px] select-none">+</span>
           </button>
         </div>
       </div>
