@@ -1,0 +1,19 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://veeville.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 10
+
+# Disallow specific paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Allow specific directories explicitly
+Allow: /images/
+Allow: /static/
+Allow: /assets/ 

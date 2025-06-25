@@ -1,5 +1,6 @@
 import React from "react";
 import "./About.css";
+import { SEO } from "../../components/seo/SEO";
 
 interface TeamMember {
   name: string;
@@ -136,6 +137,20 @@ const services: Service[] = [
 const AboutPage: React.FC = () => {
   return (
     <>
+      <SEO
+        title="About Veeville - Our Story & Services | Global Marketing Company"
+        description="Learn about Veeville, a global integrated marketing company offering services across IT, retail, healthcare, FMCG, and more sectors. Discover our comprehensive marketing solutions and creative expertise."
+        canonicalUrl="/about"
+        keywords={[
+          "about veeville",
+          "marketing company",
+          "brand strategy",
+          "creative development",
+          "digital marketing",
+          "global marketing",
+          "integrated marketing",
+        ]}
+      />
       <section className="stamina-banner">
         <img
           src={`https://veeville-website.s3.ap-south-1.amazonaws.com/Project-Images/thumbnails/About+banner.webp`}
