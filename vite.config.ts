@@ -6,9 +6,6 @@ import path from "path";
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [react(), tailwind()],
-  server: {
-    historyApiFallback: true, // <--- important line
-  },
   publicDir: "./static",
   base: mode === "development" ? "/" : "/",
   css: {
