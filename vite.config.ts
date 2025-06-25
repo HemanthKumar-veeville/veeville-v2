@@ -12,17 +12,17 @@ export default defineConfig(({ mode }) => ({
     viteStaticCopy({
       targets: [
         {
-          src: 'static/robots.txt',
+          src: 'public/robots.txt',
           dest: ''
         },
         {
-          src: 'static/sitemap.xml',
+          src: 'public/sitemap.xml',
           dest: ''
         }
       ]
     })
   ],
-  publicDir: "./static", // This tells Vite to serve public files from "static/"
+  publicDir: "./public", // This tells Vite to serve public files from "public/"
   base: mode === "development" ? "/" : "/",
   css: {
     postcss: {
