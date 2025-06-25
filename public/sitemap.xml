@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Main Pages -->
   <url>
-    <loc>https://veeville.com/</loc>
+    <loc>https://veeville-v2.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://veeville.com/about</loc>
+    <loc>https://veeville-v2.vercel.app/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://veeville.com/work</loc>
+    <loc>https://veeville-v2.vercel.app/work</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://veeville.com/work/marketing</loc>
+    <loc>https://veeville-v2.vercel.app/work/marketing</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://veeville.com/work/experiences</loc>
+    <loc>https://veeville-v2.vercel.app/work/experiences</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://veeville.com/work/technology</loc>
+    <loc>https://veeville-v2.vercel.app/work/technology</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://veeville.com/clients</loc>
+    <loc>https://veeville-v2.vercel.app/clients</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://veeville.com/contact</loc>
+    <loc>https://veeville-v2.vercel.app/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
