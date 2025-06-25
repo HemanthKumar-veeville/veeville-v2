@@ -1,12 +1,28 @@
 import { defineConfig } from "vite";
-import tailwind from "tailwindcss";
 import react from "@vitejs/plugin-react";
+import tailwind from "tailwindcss";
 import path from "path";
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  plugins: [react(), tailwind()],
-  publicDir: "./static",
+  plugins: [
+    react(),
+    // Tailwind via PostCSS only, remove direct plugin call here
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'static/robots.txt',
+          dest: ''
+        },
+        {
+          src: 'static/sitemap.xml',
+          dest: ''
+        }
+      ]
+    })
+  ],
+  publicDir: "./static", // This tells Vite to serve public files from "static/"
   base: mode === "development" ? "/" : "/",
   css: {
     postcss: {
