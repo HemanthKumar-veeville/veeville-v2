@@ -28,6 +28,34 @@ const Footer = (): JSX.Element => {
         {/* Column 2 - Primary Links */}
         <div className="col-span-1 flex flex-col space-y-3">
           <Link
+            to="/about"
+            className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
+          >
+            <Info className="w-4 h-4 transition-colors duration-300" />
+            About
+          </Link>
+          <Link
+            to="/our-clients"
+            className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
+          >
+            <Users className="w-4 h-4 transition-colors duration-300" />
+            Our Clients
+          </Link>
+          <Link
+            to="/our-work"
+            className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
+          >
+            <Briefcase className="w-4 h-4 transition-colors duration-300" />
+            Our Work
+          </Link>
+          <Link
+            to="/experiences"
+            className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
+          >
+            <Building2 className="w-4 h-4 transition-colors duration-300" />
+            Veeville Experiences
+          </Link>
+          <Link
             to="/careers"
             className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
           >
@@ -35,11 +63,11 @@ const Footer = (): JSX.Element => {
             Careers
           </Link>
           <Link
-            to="/sitemap"
+            to="/contact"
             className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
           >
-            <Map className="w-4 h-4 transition-colors duration-300" />
-            Site Map
+            <Mail className="w-4 h-4 transition-colors duration-300" />
+            Contact
           </Link>
         </div>
 
@@ -58,6 +86,13 @@ const Footer = (): JSX.Element => {
           >
             <Shield className="w-4 h-4 transition-colors duration-300" />
             Privacy Policy
+          </Link>
+          <Link
+            to="/sitemap"
+            className="text-[#848688] hover:text-gray-900 text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:translate-x-1"
+          >
+            <Map className="w-4 h-4 transition-colors duration-300" />
+            Site Map
           </Link>
         </div>
 

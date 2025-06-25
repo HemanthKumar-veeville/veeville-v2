@@ -1,33 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
 import "./Work.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebookF,
-  faLinkedinIn,
-  faInstagram,
-  faYoutube,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faBars,
-  faXmark,
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  slides,
-  tabs,
-  portfolioItems,
-  relatedProjects,
-  sections,
-  socialLinks,
-} from "./data";
-import { RelatedProject } from "./types";
-import { useCarousel } from "../../lib/hooks/useCarousel";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { slides, tabs, relatedProjects } from "./data";
 import PortfolioSection from "../../components/ui/PortfolioSection";
 import RelatedProjectsCarousel from "../../components/ui/RelatedProjectsCarousel";
-import { API_BASE_URL } from "./constants";
-import Footer from "@/components/ui/Footer/Footer";
 
 const WorkPage: React.FC = () => {
   // State

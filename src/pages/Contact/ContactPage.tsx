@@ -1,32 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import "./Contact.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebookF,
-  faLinkedinIn,
-  faInstagram,
-  faYoutube,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faBars,
-  faXmark,
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
-import { API_BASE_URL } from "../Work/constants";
 import EnquiryForm from "../../components/ui/EnquiryForm";
-import Footer from "../../components/ui/Footer/Footer";
 
 const ContactPage: React.FC = () => {
   const [currentTime, setCurrentTime] = useState<string>("");
-  const [isNavbarSticky, setIsNavbarSticky] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-
-  // Refs
-  const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     // Update time every second
@@ -41,48 +18,17 @@ const ContactPage: React.FC = () => {
       );
     }, 1000);
 
-    // Handle sticky navbar
-    const handleScroll = () => {
-      setIsNavbarSticky(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
     return () => {
       clearInterval(timer);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  // Focus search input when overlay opens
-  useEffect(() => {
-    if (isSearchOpen && searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  }, [isSearchOpen]);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const toggleSearch = () => {
-    setIsSearchOpen(!isSearchOpen);
-    if (!isSearchOpen) {
-      setSearchQuery("");
-    }
-  };
-
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSearchOpen(false); // Close search overlay after submission
-  };
 
   return (
     <div>
       {/* Banner Section */}
       <section className="stamina-banner">
         <img
-          src={`${API_BASE_URL}/uploads/Contact_Banner_acc5cd1db2.webp`}
+          src={`https://veeville-website.s3.ap-south-1.amazonaws.com/Project-Images/thumbnails/Contact+Banner.webp`}
           alt="Banner Image"
           className="stamina-banner__image"
         />

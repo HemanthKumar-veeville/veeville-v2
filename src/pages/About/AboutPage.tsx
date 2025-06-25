@@ -1,22 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import "./About.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { API_BASE_URL } from "../Work/constants";
-import {
-  faFacebookF,
-  faLinkedinIn,
-  faInstagram,
-  faYoutube,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faBars,
-  faXmark,
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
-
-import Footer from "../../components/ui/Footer/Footer";
 
 interface TeamMember {
   name: string;
@@ -53,7 +36,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Mahesh Vorkady",
     location: "Bengaluru",
-    image: `${API_BASE_URL}/uploads/Mahesh_b1f021f3b0.webp`,
+    image: `https://veeville-website.s3.ap-south-1.amazonaws.com/Images/About+Images/Mahesh.webp`,
   },
   {
     name: "Rajesh Vorkady",
@@ -73,7 +56,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Bharat Ramanath",
     location: "Bengaluru",
-    image: `${API_BASE_URL}/uploads/Bharath_8e4d3096f2.webp`,
+    image: `https://veeville-website.s3.ap-south-1.amazonaws.com/Images/About+Images/Bharath.webp`,
   },
 ];
 
@@ -151,53 +134,11 @@ const services: Service[] = [
 ];
 
 const AboutPage: React.FC = () => {
-  // State for navbar
-  const [isNavbarSticky, setIsNavbarSticky] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-
-  // Ref for search input
-  const searchInputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsNavbarSticky(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Focus search input when overlay opens
-  useEffect(() => {
-    if (isSearchOpen && searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  }, [isSearchOpen]);
-
-  // Event handlers
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const toggleSearch = () => {
-    setIsSearchOpen(!isSearchOpen);
-    if (!isSearchOpen) {
-      setSearchQuery("");
-    }
-  };
-
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSearchOpen(false);
-  };
-
   return (
     <>
       <section className="stamina-banner">
         <img
-          src={`${API_BASE_URL}/uploads/About_banner_085fdf70dc.webp`}
+          src={`https://veeville-website.s3.ap-south-1.amazonaws.com/Project-Images/thumbnails/About+banner.webp`}
           alt="Banner Image"
           className="stamina-banner__image"
         />
