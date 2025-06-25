@@ -19,7 +19,7 @@ const Welcome = (): JSX.Element => {
           <div className="group flex items-center gap-3">
             <Link
               to="/work"
-              className="text-md text-[#848688] group-hover:text-[#f05847] transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#f05847] after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full hover:cursor-none"
+              className="nav-link text-md text-[#848688] group-hover:text-[#f05847] transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#f05847] after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full hover:cursor-none"
             >
               WORK
             </Link>
@@ -27,7 +27,7 @@ const Welcome = (): JSX.Element => {
           <div className="group flex items-center gap-3">
             <Link
               to="/clients"
-              className="text-md text-[#848688] group-hover:text-[#f05847] transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#f05847] after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full hover:cursor-none"
+              className="nav-link text-md text-[#848688] group-hover:text-[#f05847] transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#f05847] after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full hover:cursor-none"
             >
               CLIENTS
             </Link>
@@ -35,7 +35,7 @@ const Welcome = (): JSX.Element => {
           <div className="group flex items-center gap-3">
             <Link
               to="/about"
-              className="text-md text-[#848688] group-hover:text-[#f05847] transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#f05847] after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full hover:cursor-none"
+              className="nav-link text-md text-[#848688] group-hover:text-[#f05847] transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#f05847] after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full hover:cursor-none"
             >
               ABOUT
             </Link>
@@ -43,7 +43,7 @@ const Welcome = (): JSX.Element => {
           <div className="group flex items-center gap-3">
             <Link
               to="/contact"
-              className="text-md text-[#848688] group-hover:text-[#f05847] transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#f05847] after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full hover:cursor-none"
+              className="nav-link text-md text-[#848688] group-hover:text-[#f05847] transition-all duration-300 font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#f05847] after:left-0 after:-bottom-0.5 after:transition-all after:duration-300 group-hover:after:w-full hover:cursor-none"
             >
               CONTACT
             </Link>
