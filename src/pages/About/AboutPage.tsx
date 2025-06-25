@@ -153,7 +153,7 @@ const AboutPage: React.FC = () => {
       />
       <section className="stamina-banner">
         <img
-          src={`https://veeville-website.s3.ap-south-1.amazonaws.com/Project-Images/thumbnails/About+banner.webp`}
+          src={`https://veeville-website.s3.ap-south-1.amazonaws.com/Images/About+Images/About+Us+Banner_Website_25Jun25_Ish.webp`}
           alt="Banner Image"
           className="stamina-banner__image"
         />
